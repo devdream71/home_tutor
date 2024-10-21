@@ -1,5 +1,8 @@
 import 'package:education_home_tutor/utils/images.dart';
+import 'package:education_home_tutor/view/become_tutor/become_tutor.dart';
+import 'package:education_home_tutor/view/home_tutor/tutor_deatils.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeTutorPage extends StatelessWidget {
   const HomeTutorPage({super.key});
@@ -22,12 +25,12 @@ class HomeTutorPage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const Row(
+                      Row(
                       children: [
-                        Icon(Icons.person_search,
+                        const Icon(Icons.person_search,
                             color: Colors.white, size: 40),
-                        SizedBox(width: 10),
-                        Text(
+                        const SizedBox(width: 10),
+                        const Text(
                           'Home Tutor',
                           style: TextStyle(
                             color: Colors.white,
@@ -35,13 +38,18 @@ class HomeTutorPage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Spacer(),
-                        Text(
-                          "Become a Tutor?",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600),
+                        const Spacer(),
+                        InkWell(
+                            onTap: () {
+                              Get.to(const BecomeTutor(), transition: Transition.rightToLeftWithFade);
+                            },
+                          child: const Text(
+                            "Become a Tutor?",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600),
+                          ),
                         )
                       ],
                     ),
@@ -119,46 +127,49 @@ class HomeTutorPage extends StatelessWidget {
 
   // Widget for the tutor card
   Widget buildTutorCard() {
-    return const Card(
-      margin: EdgeInsets.symmetric(vertical: 8),
-      child: Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircleAvatar(
-              radius: 30,
-              backgroundImage: AssetImage(
-                  AppImages.splashLogo), 
-            ),
-            SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Md. Jasim Uddin Nizami',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blue,
-                    ),
-                  ),
-                  SizedBox(height: 5),
-
-                  Text(
-                    'One, Six, Alim, BBA\nEnglish, Bangla, Math\nDhaka - Sahabag\nHatirpool, Karwanbazar, Panthapoth',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(width: 10,),
-
-                ],
+    return InkWell(
+      onTap: () =>   Get.to(const TutorProfile()),
+      child: const Card(
+        margin: EdgeInsets.symmetric(vertical: 8),
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage(
+                    AppImages.splashLogo), 
               ),
-            ),
-          ],
+              SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Md. Jasim Uddin Nizami',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
+                    ),
+                    SizedBox(height: 5),
+      
+                    Text(
+                      'One, Six, Alim, BBA\nEnglish, Bangla, Math\nDhaka - Sahabag\nHatirpool, Karwanbazar, Panthapoth',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(width: 10,),
+      
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

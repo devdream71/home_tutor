@@ -1,4 +1,5 @@
 import 'package:education_home_tutor/home.dart';
+import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/view/splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
