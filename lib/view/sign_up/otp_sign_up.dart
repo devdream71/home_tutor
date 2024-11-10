@@ -1,5 +1,6 @@
 import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/utils/strings.dart';
+import 'package:education_home_tutor/view/login/login.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
@@ -84,7 +85,7 @@ class OTPSignUp extends StatelessWidget {
                 ),
                 CustomButton(
                   onPressed: () {
-                    Get.to(const OTPSignUp(), transition: Transition.rightToLeftWithFade);
+                    Get.to(const Login(), transition: Transition.rightToLeftWithFade);
 
                   },
                   text: "Login",

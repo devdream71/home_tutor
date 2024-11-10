@@ -4,6 +4,7 @@ import 'package:education_home_tutor/view/sign_up/otp_sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
+import 'package:flutter/gestures.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String title = Get.arguments is String ? Get.arguments : "Login";
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -47,6 +49,33 @@ class SignUp extends StatelessWidget {
                       fontSize: 16,
                       color: Colors.black45,
                     ),
+                  ),
+                ),
+                const SizedBox(height: 5,),
+                
+                Center(
+                  child: RichText(
+                    text: TextSpan(
+                      text: "Sign up as a - ",
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.black,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "$title".toUpperCase(),
+                          style: const TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              Get.to(() => const SignUp());
+                            },
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 const SizedBox(

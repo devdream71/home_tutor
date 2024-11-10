@@ -1,4 +1,5 @@
 import 'package:education_home_tutor/home.dart';
+import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
 import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/view/splash/splash.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const Splash(),
+     //home: const AcademicSignUp(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:education_home_tutor/view/home_tutor/home_tutor.dart';
+import 'package:education_home_tutor/view/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -31,7 +32,7 @@ class _HomeState extends State<Home> {
 
       _pageController.animateToPage(
         _currentIndex,
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
     });
@@ -79,7 +80,7 @@ class _HomeState extends State<Home> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'open the gate to all education',
                       style: TextStyle(
                         fontSize: 16,
@@ -104,21 +105,29 @@ class _HomeState extends State<Home> {
                             });
                           },
                           children: [
+                            
                             buildSliderItem('Academy', AppImages.splashLogo,
                                 () {
-                              print("Academy clicked");
+                              Get.to(
+                                const Login(),
+                                arguments: 'Academy',
+                                transition: Transition.rightToLeftWithFade,
+                              );
                             }),
                             buildSliderItem('Teacher', AppImages.splashLogo,
                                 () {
-                              print("Teacher clicked");
+                              Get.to(const Login(),
+                               arguments: 'Teacher',
+                                  transition: Transition.rightToLeftWithFade);
                             }),
                             buildSliderItem('Student', AppImages.splashLogo,
                                 () {
-                              print("Student clicked");
+                              Get.to(const Login(),
+                               arguments: 'Student',
+                                  transition: Transition.rightToLeftWithFade);
                             }),
                             buildSliderItem('Home Tutor', AppImages.splashLogo,
                                 () {
-                              print("Home Tutor clicked");
                               Get.to(const HomeTutorPage(),
                                   transition: Transition.rightToLeftWithFade);
                             }),
@@ -148,25 +157,49 @@ class _HomeState extends State<Home> {
                 const SizedBox(height: 20),
 
                 // Chip Row
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Chip(label: Text("Academy")),
-                    SizedBox(width: 10),
-                    Chip(label: Text("Teacher")),
-                    SizedBox(width: 10),
-                    Chip(label: Text("Student")),
+                    InkWell(
+                        onTap: () {
+                          Get.to(const Login(),
+                           arguments: 'Academy',
+                              transition: Transition.rightToLeftWithFade);
+                        },
+                        child: const Chip(label: Text("Academy"))),
+                    const SizedBox(width: 10),
+                    InkWell(
+                        onTap: () {
+                          Get.to(const Login(),
+                           arguments: 'Teacher',
+                              transition: Transition.rightToLeftWithFade);
+                        },
+                        child: const Chip(label: Text("Teacher"))),
+                    const SizedBox(width: 10),
+                    InkWell(
+                        onTap: () {
+                          Get.to(const Login(),
+                          arguments: 'Student',
+                              transition: Transition.rightToLeftWithFade);
+                        },
+                        child: const Chip(label: Text("Student"))),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Chip(label: Text("Parents")),
+                    InkWell(
+                        onTap: () {
+                          Get.to(const Login(),
+                          arguments: 'Parents',
+                              transition: Transition.rightToLeftWithFade);
+                        },
+                        child: const Chip(label: Text("Parents"))),
                     const SizedBox(width: 10),
                     InkWell(
                         onTap: () => Get.to(const HomeTutorPage(),
                             transition: Transition.rightToLeftWithFade),
-                        child: const Chip(label: Text("Home Tutor"))),
+                        child: const Chip(label: Text("Home Tutor"),),),
                   ],
                 ),
 

@@ -14,23 +14,19 @@ class BecomeTutor extends StatefulWidget {
 }
 
 class _BecomeTutorState extends State<BecomeTutor> {
-  final ImagePicker _picker = ImagePicker();
+  // final ImagePicker _picker = ImagePicker();
 
-  XFile? _imageFile;
+  // XFile? _imageFile;
 
-  final _formKey = GlobalKey<FormState>();
-  // GlobalKey for form validation
-  final TextEditingController _zipController = TextEditingController();
+  // Future<void> _pickImage(ImageSource source) async {
+  //   final XFile? pickedFile = await _picker.pickImage(source: source);
 
-  Future<void> _pickImage(ImageSource source) async {
-    final XFile? pickedFile = await _picker.pickImage(source: source);
-
-    if (pickedFile != null) {
-      setState(() {
-        _imageFile = pickedFile;
-      });
-    }
-  }
+  //   if (pickedFile != null) {
+  //     setState(() {
+  //       _imageFile = pickedFile;
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -42,45 +38,45 @@ class _BecomeTutorState extends State<BecomeTutor> {
           child: Column(
             children: [
               const SizedBox(height: 10),
-              Center(
-                child: Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    CircleAvatar(
-                      radius: 65,
-                      backgroundColor: Colors.green[100],
-                      child: CircleAvatar(
-                        radius: 60,
-                        backgroundImage: _imageFile != null
-                            ? FileImage(File(_imageFile!.path))
-                            : const AssetImage(AppImages.splashLogo)
-                                as ImageProvider,
-                      ),
-                    ),
-                    Positioned(
-                      bottom: 4,
-                      right: 4,
-                      child: GestureDetector(
-                        onTap: () {
-                          _showImageSourceActionSheet(context);
-                        },
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(6),
-                          child: const Icon(
-                            Icons.camera_alt,
-                            size: 20,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Center(
+              //   child: Stack(
+              //     alignment: Alignment.bottomRight,
+              //     children: [
+              //       CircleAvatar(
+              //         radius: 65,
+              //         backgroundColor: Colors.green[100],
+              //         child: CircleAvatar(
+              //           radius: 60,
+              //           backgroundImage: _imageFile != null
+              //               ? FileImage(File(_imageFile!.path))
+              //               : const AssetImage(AppImages.splashLogo)
+              //                   as ImageProvider,
+              //         ),
+              //       ),
+              //       Positioned(
+              //         bottom: 4,
+              //         right: 4,
+              //         child: GestureDetector(
+              //           onTap: () {
+              //             _showImageSourceActionSheet(context);
+              //           },
+              //           child: Container(
+              //             decoration: const BoxDecoration(
+              //               shape: BoxShape.circle,
+              //               color: Colors.white,
+              //             ),
+              //             padding: const EdgeInsets.all(6),
+              //             child: const Icon(
+              //               Icons.camera_alt,
+              //               size: 20,
+              //               color: Colors.black,
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               const SizedBox(height: 10),
               const Center(
                 child: Text(
@@ -317,33 +313,33 @@ class _BecomeTutorState extends State<BecomeTutor> {
     ));
   }
 
-  void _showImageSourceActionSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return SafeArea(
-          child: Wrap(
-            children: [
-              ListTile(
-                leading: const Icon(Icons.photo_library),
-                title: const Text('Gallery'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  _pickImage(ImageSource.gallery);
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.photo_camera),
-                title: const Text('Camera'),
-                onTap: () {
-                  Navigator.of(context).pop();
-                  _pickImage(ImageSource.camera);
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
+  // void _showImageSourceActionSheet(BuildContext context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return SafeArea(
+  //         child: Wrap(
+  //           children: [
+  //             ListTile(
+  //               leading: const Icon(Icons.photo_library),
+  //               title: const Text('Gallery'),
+  //               onTap: () {
+  //                 Navigator.of(context).pop();
+  //                 _pickImage(ImageSource.gallery);
+  //               },
+  //             ),
+  //             ListTile(
+  //               leading: const Icon(Icons.photo_camera),
+  //               title: const Text('Camera'),
+  //               onTap: () {
+  //                 Navigator.of(context).pop();
+  //                 _pickImage(ImageSource.camera);
+  //               },
+  //             ),
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 }
