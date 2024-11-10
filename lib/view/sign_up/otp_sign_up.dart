@@ -1,13 +1,10 @@
-import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/utils/strings.dart';
 import 'package:education_home_tutor/view/login/login.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class OTPSignUp extends StatelessWidget {
   const OTPSignUp({super.key});
@@ -52,24 +49,18 @@ class OTPSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-
-               const Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 20.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                       Text(AppStrings.otpText1),
-                  Text(AppStrings.otpText2),
-                  Text(AppStrings.otpText3),
-                  
+                      Text(AppStrings.otpText1),
+                      Text(AppStrings.otpText2),
+                      Text(AppStrings.otpText3),
                     ],
                   ),
                 ),
-
-                
-
-
                 const SizedBox(
                   height: 20,
                 ),
@@ -79,14 +70,13 @@ class OTPSignUp extends StatelessWidget {
                 const CustomTextFormField(
                   hintText: "1234",
                 ),
-                
                 const SizedBox(
                   height: 30,
                 ),
                 CustomButton(
                   onPressed: () {
-                    Get.to(const Login(), transition: Transition.rightToLeftWithFade);
-
+                    Get.to(const Login(),
+                        transition: Transition.rightToLeftWithFade);
                   },
                   text: "Login",
                   color: Colors.blue,

@@ -1,11 +1,7 @@
-
 import 'package:education_home_tutor/utils/images.dart';
-import 'package:education_home_tutor/view/sign_up/otp_sign_up.dart';
 import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 class TutorProfile extends StatelessWidget {
   const TutorProfile({super.key});
@@ -117,7 +113,7 @@ class TutorProfile extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: GestureDetector(
                     onTap: () {
-                      print("Contact button clicked");
+                     // print("Contact button clicked");
                       Get.to(const SignUp(), transition: Transition.rightToLeftWithFade);
 
                     },

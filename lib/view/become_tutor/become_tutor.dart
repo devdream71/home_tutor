@@ -1,10 +1,7 @@
-import 'dart:io';
-import 'package:education_home_tutor/utils/images.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class BecomeTutor extends StatefulWidget {
   const BecomeTutor({super.key});
@@ -92,7 +89,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Education Institute",
                 ),
               ),
@@ -104,7 +101,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Education Quality",
                 ),
               ),
@@ -116,7 +113,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Passing Year",
                 ),
               ),
@@ -128,7 +125,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Academy",
                 ),
               ),
@@ -140,7 +137,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Class",
                 ),
               ),
@@ -152,7 +149,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Subject",
                 ),
               ),
@@ -164,7 +161,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "District",
                 ),
               ),
@@ -176,7 +173,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Area",
                 ),
               ),
@@ -188,7 +185,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Location",
                 ),
               ),
@@ -238,7 +235,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Details",
                 ),
               ),
@@ -250,7 +247,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "E-mail",
                 ),
               ),
@@ -262,7 +259,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Mobile Number",
                 ),
               ),
@@ -274,7 +271,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Mobile Number (Whats App)",
                 ),
               ),
@@ -286,7 +283,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
               ),
               const Align(
                 alignment: Alignment.centerLeft,
-                child: const LabelWithAsterisk(
+                child:  LabelWithAsterisk(
                   labelText: "Youtube link",
                 ),
               ),

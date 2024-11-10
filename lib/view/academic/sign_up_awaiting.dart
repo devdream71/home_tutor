@@ -1,8 +1,7 @@
-import 'package:education_home_tutor/view/academic/academic_home/AcademicHomeBottomNav.dart';
+import 'package:education_home_tutor/view/academic/academic_home/academic_homebottom_nav.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SignUpAwaiting extends StatelessWidget {
   const SignUpAwaiting({super.key});
@@ -41,7 +40,7 @@ class SignUpAwaiting extends StatelessWidget {
                 width: 200,
                 child: CustomButton(
                   onPressed: () {
-                    Get.offAll(AcademicHomeBottomNav());
+                    Get.offAll(const AcademicHomeBottomNav());
                   },
                   text: "Pending",
                   color: Colors.blue,

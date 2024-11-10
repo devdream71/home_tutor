@@ -1,14 +1,11 @@
-import 'package:education_home_tutor/utils/colors.dart';
-import 'package:education_home_tutor/utils/strings.dart';
 import 'package:education_home_tutor/view/sign_up/otp_sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/gestures.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -63,7 +60,7 @@ class SignUp extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: "$title".toUpperCase(),
+                          text: title.toUpperCase(),
                           style: const TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,

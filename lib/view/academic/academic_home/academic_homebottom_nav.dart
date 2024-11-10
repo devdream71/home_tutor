@@ -14,22 +14,14 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
 
   // Screens for each tab
   static final List<Widget> _pages = <Widget>[
-    const Text('Home'),
-    const Text('Home work'),
-    const Text('account'),
-    const Text('Student'),
-    const Text('More'),
+    const Center(child: Text('Home')),
+    const Center(child: Text('Home work')),
+    const Center(child: Text('Account')),
+    const Center(child: Text('Student')),
+    const Center(child: Text('More')),
   ];
 
-  // Titles for each tab
-  static const List<String?> _titles = <String?>[
-    'Home',
-    'Home work',
-    'account',
-    'Student',
-    'More',
-  ];
-
+  
   // Function to handle tab selection
   void _onItemTapped(int index) {
     setState(() {
@@ -40,14 +32,17 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
   @override
   void initState() {
     super.initState();
-    // Load user info when the widget initializes
+ 
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Laksam Cambrian'),
+        title: const Text(
+          'Laksam Cambrian',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: Colors.blue,
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -55,7 +50,7 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed, // to show all tabs
+        type: BottomNavigationBarType.fixed,  
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),

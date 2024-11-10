@@ -1,5 +1,4 @@
 import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
-import 'package:education_home_tutor/view/academic/sign_up_awaiting.dart';
 import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
@@ -7,7 +6,6 @@ import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -65,7 +63,7 @@ class Login extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: "$title".toUpperCase(),
+                          text: title.toUpperCase(),
                           style: const TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,
@@ -171,8 +169,8 @@ class Login extends StatelessWidget {
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Get.to(
-                               // () => const SignUp(),
-                               () => const AcademicSignUp(),
+                                // () => const SignUp(),
+                                () => const AcademicSignUp(),
                                 arguments: title,
                                 transition: Transition.rightToLeftWithFade,
                               );
