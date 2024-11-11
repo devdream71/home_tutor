@@ -1,9 +1,19 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:education_home_tutor/view/academic/academic_home/academic_home.dart';
 import 'package:education_home_tutor/view/splash/splash.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
+
+  //const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,13 +24,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
       home: const Splash(),
-     //home: const AcademicSignUp(),
+      // home: AcademicHome(),
     );
   }
 }
-
