@@ -11,33 +11,32 @@ class Routine extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
+      body: const Padding(
+        padding: EdgeInsets.all(15.0),
         child: Column(
           children: [
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton.icon(
-                label: const Text(
-                  "Create Routine",
-                  style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-                icon: const Icon(
-                  Icons.add,
-                  color: Colors.white,
-                  
-                ),
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 16.0, horizontal: 16.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                ),
-              ),
-            )
+            // Align(
+            //   alignment: Alignment.center,
+            //   child: ElevatedButton.icon(
+            //     label: const Text(
+            //       "Create Routine",
+            //       style: TextStyle(color: Colors.white, fontSize: 16),
+            //     ),
+            //     icon: const Icon(
+            //       Icons.add,
+            //       color: Colors.white,
+            //     ),
+            //     onPressed: () {},
+            //     style: ElevatedButton.styleFrom(
+            //       backgroundColor: Colors.blueGrey,
+            //       padding: const EdgeInsets.symmetric(
+            //           vertical: 16.0, horizontal: 16.0),
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(8.0),
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

@@ -1,4 +1,9 @@
+import 'package:education_home_tutor/view/academic/academic_class/academic_class.dart';
 import 'package:education_home_tutor/view/academic/attendance/attendance.dart';
+import 'package:education_home_tutor/view/academic/home_work/home_work.dart';
+import 'package:education_home_tutor/view/academic/mark_entry/mark_entry.dart';
+import 'package:education_home_tutor/view/academic/notice/notice.dart';
+import 'package:education_home_tutor/view/academic/result/result.dart';
 import 'package:education_home_tutor/view/academic/routine/routine.dart';
 import 'package:education_home_tutor/view/academic/student_request/all_student.dart';
 import 'package:education_home_tutor/view/academic/teacher/all_teacher.dart';
@@ -57,46 +62,43 @@ class AcademicHome extends StatelessWidget {
                         // Handle individual item clicks
                         switch (item['label']) {
                           case 'Attendance':
-                            // Example: Navigate to Attendance page
-                            print('Attendance clicked');
-                            // Get.to(AttendancePage());
-                            Get.to(Attendance());
+                            Get.to(Attendance(), transition: Transition.rightToLeftWithFade); 
                             break;
                           case 'Teachers Info':
-                            print('Teachers Info clicked');
                             Get.to(const AllTeacher(),
                                 transition: Transition.rightToLeftWithFade);
                             break;
                           case 'Class':
-                            print('Class clicked');
-                            // Get.to(ClassPage());
+                          Get.to(const AcademicClass(),
+                                transition: Transition.rightToLeftWithFade);
                             break;
                           case 'Mark Entry':
-                            print('Mark Entry clicked');
-                            // Get.to(MarkEntryPage());
+                            Get.to(const MarkEntryPage(),
+                                transition: Transition.rightToLeftWithFade);
+
                             break;
                           case 'Home Work':
-                            print('Home Work clicked');
-                            // Get.to(HomeWorkPage());
+                            Get.to(  HomeWorkPage(),
+                                transition: Transition.rightToLeftWithFade);
                             break;
                           case 'Student Info':
-                            print('Student Info clicked');
                             Get.to(const AllStudent(),
                                 transition: Transition.rightToLeftWithFade);
                             break;
                           case 'Result':
-                            print('Result clicked');
-                            // Get.to(ResultPage());
+                            Get.to(const ResultPage(),
+                                transition: Transition.rightToLeftWithFade);
+
                             break;
                           case 'Notice':
-                            print('Notice clicked');
-                            // Get.to(NoticePage());
+                            Get.to(const NoticePage(),
+                                transition: Transition.rightToLeftWithFade);
+
                             break;
                           case 'Routine':
-                            print('Notice clicked');
-                             Get.to(const Routine(),
+                            Get.to(const Routine(),
                                 transition: Transition.rightToLeftWithFade);
-                            break;  
+                            break;
                           default:
                             print('Unknown item clicked');
                             break;

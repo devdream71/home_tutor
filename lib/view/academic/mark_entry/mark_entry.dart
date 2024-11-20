@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
-class Attendance extends StatelessWidget {
-  const Attendance({super.key});
+class MarkEntryPage extends StatelessWidget {
+  const MarkEntryPage ({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Attendance'),
+        title: const Text('Mark Entry'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
       body: Column(
-        children: [],
+        children: [
+            
+        ],
       ),
     );
   }
