@@ -15,7 +15,8 @@ class StudentAttendenceView extends StatelessWidget {
             children: [
               const Row(
                 children: [
-                  Expanded(
+                  SizedBox(
+                    width: 150,
                     child: Column(
                       children: [
                         Align(
@@ -23,6 +24,7 @@ class StudentAttendenceView extends StatelessWidget {
                             child: LabelWithAsterisk(labelText: "Date")),
                         CustomTextFormField(
                           hintText: "",
+                          showDropdownIcon: true,
                         ),
                       ],
                     ),
@@ -30,19 +32,6 @@ class StudentAttendenceView extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Period"),
-                        ),
-                        CustomTextFormField(
-                          hintText: "",
-                        ),
-                      ],
-                    ),
-                  )
 
                   // const SizedBox(height: 8,),
                 ],
@@ -53,11 +42,11 @@ class StudentAttendenceView extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: DataTable(
-                  headingRowColor: MaterialStateColor.resolveWith(
+                  headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
-                  columns: [
-                    const DataColumn(label: Text("Date")),
-                    const DataColumn(label: Text("Attend")),
+                  columns: const [
+                     DataColumn(label: Text("Date")),
+                     DataColumn(label: Text("Attend")),
                   ],
                   rows: [
                     buildNotesRow(

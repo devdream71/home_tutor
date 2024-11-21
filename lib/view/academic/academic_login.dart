@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/view/academic/academic_home/academic_homebottom_nav.dart';
 import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
 import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
@@ -7,8 +8,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class AcademicLogin extends StatelessWidget {
+  const AcademicLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +110,8 @@ class Login extends StatelessWidget {
                 ),
                 CustomButton(
                   onPressed: () {
-                    //Get.to(const OTPSignUp(), transition: Transition.rightToLeftWithFade);
+                    Get.offAll(const AcademicHomeBottomNav(),
+                        transition: Transition.rightToLeftWithFade);
                   },
                   text: "Login",
                   color: Colors.blue,

@@ -82,41 +82,41 @@ class SignUp extends StatelessWidget {
                   labelText: "Your Name",
                 ),
                 const CustomTextFormField(
-                  hintText: "Md. Abc",
+                  hintText: "",
                 ),
                 const SizedBox(
                   height: 8,
                 ),
                 const LabelWithAsterisk(labelText: "Country"),
                 const CustomTextFormField(
-                  hintText: "Bangladesh",
+                  hintText: "",
                 ),
                 const SizedBox(
                   height: 8,
                 ),
                 const LabelWithAsterisk(labelText: "Gender"),
                 const CustomTextFormField(
-                  hintText: "Selecte",
+                  hintText: "",
                   showDropdownIcon: true,
                 ),
                 const SizedBox(
                   height: 8,
                 ),
                 const LabelWithAsterisk(labelText: "Email"),
-                const CustomTextFormField(hintText: "realme@gmail.com"),
+                const CustomTextFormField(hintText: ""),
                 const SizedBox(
                   height: 8,
                 ),
                 const LabelWithAsterisk(labelText: "Phone Number"),
                 const CustomTextFormField(
-                  hintText: "+880 ",
+                  hintText: "",
                 ),
                 const SizedBox(
                   height: 8,
                 ),
                 const LabelWithAsterisk(labelText: "Address"),
                 const CustomTextFormField(
-                  hintText: "Dhaka ",
+                  hintText: "",
                   maxLines: 2,
                 ),
                 const SizedBox(
@@ -131,7 +131,7 @@ class SignUp extends StatelessWidget {
                             alignment: Alignment.centerLeft,
                             child: LabelWithAsterisk(labelText: "Password")),
                           CustomTextFormField(
-                            hintText: "Password ",
+                            hintText: " ",
                           ),
                         ],
                       ),
@@ -146,7 +146,7 @@ class SignUp extends StatelessWidget {
                                 labelText: "Conform Password"),
                           ),
                           CustomTextFormField(
-                            hintText: "Conform Password ",
+                            hintText: " ",
                           ),
                         ],
                       ),

@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'package:education_home_tutor/view/academic/academic_login.dart';
 import 'package:education_home_tutor/view/home_tutor/home_tutor.dart';
 import 'package:education_home_tutor/view/login/login.dart';
 import 'package:education_home_tutor/view/student/student_log_in.dart';
+import 'package:education_home_tutor/view/teacher/teacher_login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -110,14 +112,14 @@ class HomeState extends State<Home> {
                             buildSliderItem('Academy', AppImages.splashLogo,
                                 () {
                               Get.to(
-                                const Login(),
+                                const AcademicLogin(),
                                 arguments: 'Academy',
                                 transition: Transition.rightToLeftWithFade,
                               );
                             }),
                             buildSliderItem('Teacher', AppImages.splashLogo,
                                 () {
-                              Get.to(const Login(),
+                              Get.to(const TeacherLoginView(),
                                arguments: 'Teacher',
                                   transition: Transition.rightToLeftWithFade);
                             }),
@@ -163,7 +165,7 @@ class HomeState extends State<Home> {
                   children: [
                     InkWell(
                         onTap: () {
-                          Get.to(const Login(),
+                          Get.to(const AcademicLogin(),
                            arguments: 'Academy',
                               transition: Transition.rightToLeftWithFade);
                         },
@@ -171,7 +173,7 @@ class HomeState extends State<Home> {
                     const SizedBox(width: 10),
                     InkWell(
                         onTap: () {
-                          Get.to(const Login(),
+                          Get.to(const TeacherLoginView(),
                            arguments: 'Teacher',
                               transition: Transition.rightToLeftWithFade);
                         },

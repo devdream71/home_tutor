@@ -1,11 +1,5 @@
-import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
-import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/view/student/complete_student_profile.dart';
-import 'package:education_home_tutor/view/student/student_sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
-import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
-import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +22,6 @@ class StartStudentProfileCreate extends StatelessWidget {
                 'assets/education_logo.png',
                 height: 100,
               ),
-             
               const Text(
                 'Please Create Student Profile',
                 style: TextStyle(
@@ -36,11 +29,9 @@ class StartStudentProfileCreate extends StatelessWidget {
                   color: Colors.blue,
                 ),
               ),
-          
               const SizedBox(
                 height: 10,
               ),
-          
               const Text(
                 'Click Start Button to create Academy',
                 style: TextStyle(
@@ -48,33 +39,23 @@ class StartStudentProfileCreate extends StatelessWidget {
                   color: Colors.black87,
                 ),
               ),
-          
-              
               const SizedBox(
                 height: 20,
               ),
-          
-             
-             
               CustomButton(
                 onPressed: () {
-                  Get.to(const CompleteStudentProfile(), transition: Transition.rightToLeftWithFade);
+                  Get.to(const CompleteStudentProfile(),
+                      transition: Transition.rightToLeftWithFade);
                 },
                 text: "Start",
                 color: Colors.blue,
               ),
-          
               const SizedBox(
                 height: 15,
               ),
-          
-                    
-          
               const SizedBox(
                 height: 30,
               ),
-          
-              
             ],
           ),
         ),

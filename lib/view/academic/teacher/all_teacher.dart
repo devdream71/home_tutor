@@ -1,8 +1,6 @@
-import 'package:education_home_tutor/view/academic/student_request/all_student_individual_ldeatils.dart';
 import 'package:education_home_tutor/view/academic/teacher/teacher_individual_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class AllTeacher extends StatelessWidget {
   const AllTeacher({super.key});

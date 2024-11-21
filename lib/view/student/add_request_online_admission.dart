@@ -25,7 +25,7 @@ class AddRequestOnlineAdmission extends StatelessWidget {
               style: TextStyle(color: Colors.blue),
             ),
 
-             SizedBox(height: 15,),
+             const SizedBox(height: 15,),
  
             CustomButton(
               onPressed: () {
@@ -38,7 +38,7 @@ class AddRequestOnlineAdmission extends StatelessWidget {
             const SizedBox(width: 10,),
              
 
-            SizedBox(height: 15,),
+            const SizedBox(height: 15,),
             
              
             

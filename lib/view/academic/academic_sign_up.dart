@@ -6,8 +6,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
-
 class AcademicSignUp extends StatelessWidget {
   const AcademicSignUp({super.key});
 
@@ -49,8 +47,9 @@ class AcademicSignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 5,),
-                
+                const SizedBox(
+                  height: 5,
+                ),
                 Center(
                   child: RichText(
                     text: TextSpan(
@@ -89,14 +88,20 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Total Student", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Total Student",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: " ",
                 ),
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Total Teacher", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Total Teacher",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: " ",
                   showDropdownIcon: true,
@@ -104,19 +109,28 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Academy Name", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Academy Name",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(hintText: " "),
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Id/Reg/Index No",  isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Id/Reg/Index No",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: " ",
                 ),
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "EIIN No", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "EIIN No",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -124,8 +138,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-
-                const LabelWithAsterisk(labelText: "Founder Name", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Founder Name",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "   ",
                   //maxLines: 2,
@@ -133,7 +149,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Established Dat", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Established Dat",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: " ",
                   //maxLines: 2,
@@ -141,7 +160,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Gov/Privet/Reg", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Gov/Privet/Reg",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -149,7 +171,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Address", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Address",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: " ",
                   //maxLines: 2,
@@ -157,7 +182,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Country", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Country",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -165,7 +193,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "City", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "City",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -173,7 +204,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                const LabelWithAsterisk(labelText: "Zip code", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Zip code",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -181,14 +215,14 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-
                 const Text("Contract Information"),
-
                 const SizedBox(
                   height: 8,
                 ),
-
-                const LabelWithAsterisk(labelText: "Primary Phone Number", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Primary Phone Number",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -196,8 +230,10 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-
-                const LabelWithAsterisk(labelText: "Email", isRequired: true,),
+                const LabelWithAsterisk(
+                  labelText: "Email",
+                  isRequired: true,
+                ),
                 const CustomTextFormField(
                   hintText: "  ",
                   //maxLines: 2,
@@ -205,24 +241,23 @@ class AcademicSignUp extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-
-
-
                 const Row(
                   children: [
                     Expanded(
                       child: Column(
                         children: [
                           Align(
-                            alignment: Alignment.centerLeft,
-                            child: LabelWithAsterisk(labelText: "Password")),
+                              alignment: Alignment.centerLeft,
+                              child: LabelWithAsterisk(labelText: "Password")),
                           CustomTextFormField(
-                            hintText: "Password ",
+                            hintText: "",
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Expanded(
                       child: Column(
                         children: [
@@ -232,7 +267,7 @@ class AcademicSignUp extends StatelessWidget {
                                 labelText: "Conform Password"),
                           ),
                           CustomTextFormField(
-                            hintText: "Conform Password ",
+                            hintText: " ",
                           ),
                         ],
                       ),
@@ -246,7 +281,8 @@ class AcademicSignUp extends StatelessWidget {
                 ),
                 CustomButton(
                   onPressed: () {
-                    Get.to(const SignUpAwaiting(), transition: Transition.rightToLeftWithFade);
+                    Get.to(const SignUpAwaiting(),
+                        transition: Transition.rightToLeftWithFade);
                   },
                   text: "Submit",
                   color: Colors.blue,

@@ -38,6 +38,7 @@ class AddRequest extends StatelessWidget {
               ),
               const CustomTextFormField(
                 hintText: "",
+                showDropdownIcon: true,
               ),
               const SizedBox(
                 height: 10,
@@ -47,15 +48,18 @@ class AddRequest extends StatelessWidget {
               ),
               const CustomTextFormField(
                 hintText: "",
+                showDropdownIcon: true,
               ),
               const SizedBox(
                 height: 10,
               ),
               const LabelWithAsterisk(
                 labelText: "Session",
+                
               ),
               const CustomTextFormField(
                 hintText: "",
+                showDropdownIcon: true,
               ),
               const SizedBox(
                 height: 10,
@@ -65,6 +69,7 @@ class AddRequest extends StatelessWidget {
               ),
               const CustomTextFormField(
                 hintText: "",
+                showDropdownIcon: true,
               ),
               const SizedBox(
                 height: 30,

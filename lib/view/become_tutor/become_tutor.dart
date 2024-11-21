@@ -94,7 +94,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Education Institute",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -106,7 +106,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Education Quality",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -118,7 +118,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Passing Year",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -130,7 +130,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Academy",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -142,7 +142,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Class",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -154,7 +154,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Subject",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -166,7 +166,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "District",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -178,7 +178,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Area",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -190,7 +190,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Location",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,
@@ -240,7 +240,7 @@ class _BecomeTutorState extends State<BecomeTutor> {
                 ),
               ),
               const CustomTextFormField(
-                hintText: "Details",
+                hintText: "",
               ),
               const SizedBox(
                 height: 8,

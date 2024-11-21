@@ -68,7 +68,7 @@ class OTPSignUp extends StatelessWidget {
                   labelText: "OTP",
                 ),
                 const CustomTextFormField(
-                  hintText: "1234",
+                  hintText: "",
                 ),
                 const SizedBox(
                   height: 30,

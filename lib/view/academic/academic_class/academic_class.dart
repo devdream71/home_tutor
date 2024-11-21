@@ -7,7 +7,7 @@ class AcademicClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Academic Class'),
+        title: const Text('Academic Class'),
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),

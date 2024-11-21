@@ -1,5 +1,8 @@
-import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
-import 'package:education_home_tutor/view/sign_up/sign_up.dart';
+
+import 'package:education_home_tutor/view/student/start_student_profile_create.dart';
+import 'package:education_home_tutor/view/student/student_sign_up.dart';
+import 'package:education_home_tutor/view/teacher/teacher_bottom_nav.dart';
+import 'package:education_home_tutor/view/teacher/teacher_signup.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
@@ -7,12 +10,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class TeacherLoginView extends StatelessWidget {
+  const TeacherLoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final String title = Get.arguments is String ? Get.arguments : "Login";
+     
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -29,22 +32,13 @@ class Login extends StatelessWidget {
                     height: 100,
                   ),
                 ),
-                const SizedBox(height: 10),
+                
                 const Center(
                   child: Text(
-                    'Welcome To Lorgate',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const Center(
-                  child: Text(
-                    'open the gate to all education',
+                    'Education Management Software',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.black45,
+                      color: Colors.blue,
                     ),
                   ),
                 ),
@@ -55,24 +49,14 @@ class Login extends StatelessWidget {
 
                 Center(
                   child: RichText(
-                    text: TextSpan(
-                      text: "Log in as a - ",
-                      style: const TextStyle(
+                    text: const TextSpan(
+                      text: "Welcome To Login ",
+                      style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
                       ),
                       children: [
-                        TextSpan(
-                          text: title.toUpperCase(),
-                          style: const TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Get.to(() => const SignUp());
-                            },
-                        ),
+                        
                       ],
                     ),
                     textAlign: TextAlign.center,
@@ -109,7 +93,8 @@ class Login extends StatelessWidget {
                 ),
                 CustomButton(
                   onPressed: () {
-                    //Get.to(const OTPSignUp(), transition: Transition.rightToLeftWithFade);
+                    Get.offAll(const TeacherHomeBottomNav(),
+                        transition: Transition.rightToLeftWithFade);
                   },
                   text: "Login",
                   color: Colors.blue,
@@ -119,10 +104,7 @@ class Login extends StatelessWidget {
                   height: 15,
                 ),
 
-                // const LabelWithAsterisk(
-                //   labelText: "Forget Password? reset here",
-                // ),
-
+                
                 RichText(
                   text: TextSpan(
                     text: "Forget Password? ",
@@ -154,7 +136,7 @@ class Login extends StatelessWidget {
                 Center(
                   child: RichText(
                     text: TextSpan(
-                      text: "Don't have a $title account? ",
+                      text: "Don't have a   account? ",
                       style: const TextStyle(
                         fontSize: 16,
                         color: Colors.black,
@@ -170,8 +152,8 @@ class Login extends StatelessWidget {
                             ..onTap = () {
                               Get.to(
                                 // () => const SignUp(),
-                                () => const AcademicSignUp(),
-                                arguments: title,
+                                () => const TeacherSignUp(),
+                                //arguments: title,
                                 transition: Transition.rightToLeftWithFade,
                               );
                             },

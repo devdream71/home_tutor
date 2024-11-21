@@ -1,7 +1,6 @@
 import 'package:education_home_tutor/view/academic/student_request/new_student_request_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class StudentRequest extends StatelessWidget {
   const StudentRequest({super.key});

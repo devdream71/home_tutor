@@ -1,5 +1,3 @@
-import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
-import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/view/student/start_student_profile_create.dart';
 import 'package:education_home_tutor/view/student/student_sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
@@ -57,9 +55,9 @@ class StudentLogIn extends StatelessWidget {
 
                 Center(
                   child: RichText(
-                    text: TextSpan(
+                    text: const TextSpan(
                       text: "Welcome To Login ",
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
                       ),
@@ -92,7 +90,7 @@ class StudentLogIn extends StatelessWidget {
                   labelText: "Email or Mobile Number",
                 ),
                 const CustomTextFormField(
-                  hintText: "Email or Mobile Number",
+                  hintText: "",
                 ),
 
                 const SizedBox(
@@ -103,7 +101,7 @@ class StudentLogIn extends StatelessWidget {
                   labelText: "Password",
                 ),
                 const CustomTextFormField(
-                  hintText: "Password",
+                  hintText: "",
                 ),
 
                 const SizedBox(

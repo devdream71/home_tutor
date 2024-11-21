@@ -11,10 +11,10 @@ class RequestPending extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 120,
               ),
               const SizedBox(
