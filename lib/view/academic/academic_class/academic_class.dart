@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class AcademicClass extends StatelessWidget {
@@ -8,10 +9,10 @@ class AcademicClass extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Academic Class'),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
         foregroundColor: Colors.white,
       ),
-      body: Column(
+      body: const Column(
         children: [],
       ),
     );

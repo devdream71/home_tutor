@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class HomeWorkDetails extends StatelessWidget {
@@ -12,7 +13,7 @@ class HomeWorkDetails extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -81,7 +82,7 @@ class HomeWorkDetails extends StatelessWidget {
             // Write Homework Section
             Container(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: AppColor.primaryColor,
                 borderRadius: BorderRadius.circular(4),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -103,7 +104,7 @@ class HomeWorkDetails extends StatelessWidget {
             // Notes Section
             Container(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: AppColor.primaryColor,
                 borderRadius: BorderRadius.circular(4),
               ),
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

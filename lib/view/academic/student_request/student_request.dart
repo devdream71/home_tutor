@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/academic/student_request/new_student_request_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,13 +10,13 @@ class StudentRequest extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
         foregroundColor: Colors.white,
         title: const Text(
           "New Student Request",
         ),
       ),
-      body:   Padding(
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -23,11 +24,10 @@ class StudentRequest extends StatelessWidget {
           children: [
             InkWell(
               onTap: () {
-                
-                 Get.to(const NewStudentRequestDetails());
+                Get.to(const NewStudentRequestDetails(),
+                    transition: Transition.rightToLeftWithFade);
               },
               child: const Card(
-                
                 child: ListTile(
                   leading: CircleAvatar(
                     child: Text('1'),
@@ -38,7 +38,6 @@ class StudentRequest extends StatelessWidget {
                 ),
               ),
             ),
-
             const Card(
               child: ListTile(
                 leading: CircleAvatar(
@@ -49,7 +48,6 @@ class StudentRequest extends StatelessWidget {
                 trailing: Icon(Icons.arrow_forward_ios),
               ),
             ),
-
             const Card(
               child: ListTile(
                 leading: CircleAvatar(

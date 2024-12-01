@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class StudentDashBoardVIew extends StatelessWidget {
@@ -6,7 +7,7 @@ class StudentDashBoardVIew extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F6FA), // Background color
+      backgroundColor: const Color(0xFFF4F6FA),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -33,7 +34,12 @@ class StudentDashBoardVIew extends StatelessWidget {
                     const Row(
                       children: [
                         // Icon
-                        Icon(Icons.school, size: 48, color: Colors.blue),
+                        // Icon(Icons.school, size: 48, color: AppColor.primaryColor),
+                        // Image.asset("assets/people_one.png"),
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundImage: AssetImage("assets/people_one.png"),
+                        ),
                         SizedBox(width: 10),
                         // Name
                         Text(
@@ -41,7 +47,7 @@ class StudentDashBoardVIew extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Colors.blue,
+                            color: AppColor.primaryColor,
                           ),
                         ),
                       ],
@@ -53,13 +59,6 @@ class StudentDashBoardVIew extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        const SizedBox(
-                            width: 100,
-                            child: Icon(Icons.school,
-                                size: 80, color: Colors.blue)),
-                        const SizedBox(
-                          width: 8,
-                        ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,7 +141,7 @@ class StudentDashBoardVIew extends StatelessWidget {
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
-                  columns: const[
+                  columns: const [
                     DataColumn(label: Text("Period")),
                     DataColumn(label: Text("Subject")),
                     DataColumn(label: Text("Teacher")),
@@ -162,7 +161,7 @@ class StudentDashBoardVIew extends StatelessWidget {
               const SizedBox(height: 16),
               // Notes Board Table
               const Divider(
-                color: Colors.blue,
+                color: AppColor.primaryColor,
               ),
               const SizedBox(height: 16),
               const Text(
@@ -179,7 +178,7 @@ class StudentDashBoardVIew extends StatelessWidget {
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
-                  columns: const[
+                  columns: const [
                     DataColumn(label: Text("Publish Date")),
                     DataColumn(label: Text("Headline")),
                     DataColumn(label: Text("View")),
@@ -236,7 +235,7 @@ class StudentDashBoardVIew extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: AppColor.primaryColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
@@ -269,7 +268,7 @@ class StudentDashBoardVIew extends StatelessWidget {
         const DataCell(
           Icon(
             Icons.visibility,
-            color: Colors.blue,
+            color: AppColor.primaryColor,
           ),
         ),
       ],

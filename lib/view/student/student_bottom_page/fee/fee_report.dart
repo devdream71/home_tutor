@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/fee/payment_page.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
@@ -16,7 +17,7 @@ class FeeReport extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -26,7 +27,7 @@ class FeeReport extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   // Handle pay button action
-                  Get.to(PaymentTableScreen(),
+                  Get.to(const PaymentTableScreen(),
                       transition: Transition.rightToLeftWithFade);
                 },
                 child: Container(

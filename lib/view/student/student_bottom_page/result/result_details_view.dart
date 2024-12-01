@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class PopupExample extends StatelessWidget {
@@ -12,7 +13,7 @@ class PopupExample extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -61,7 +62,7 @@ class PopupExample extends StatelessWidget {
                     children: [
                       // Header Row
                       const TableRow(
-                        decoration: BoxDecoration(color: Colors.blue),
+                        decoration: BoxDecoration(color: AppColor.primaryColor),
                         children: [
                           Padding(
                             padding: EdgeInsets.all(8.0),

@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class Routine extends StatelessWidget {
@@ -8,7 +9,7 @@ class Routine extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Routine'),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
         foregroundColor: Colors.white,
       ),
       body: const Padding(

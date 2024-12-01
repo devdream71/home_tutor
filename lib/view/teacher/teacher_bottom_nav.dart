@@ -1,17 +1,12 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/settings/settings.dart';
-import 'package:education_home_tutor/view/student/student_bottom_page/attendence.dart';
-import 'package:education_home_tutor/view/student/student_bottom_page/dashboard.dart';
-import 'package:education_home_tutor/view/student/student_bottom_page/exam.dart';
-import 'package:education_home_tutor/view/student/student_bottom_page/fee/fee.dart';
-import 'package:education_home_tutor/view/student/student_bottom_page/home_work.dart/homework.dart';
-import 'package:education_home_tutor/view/student/student_bottom_page/result/result.dart';
 import 'package:education_home_tutor/view/teacher/mark/mark_entry.dart';
 import 'package:education_home_tutor/view/teacher/teacher_attendance/teacher_attendance.dart';
 import 'package:education_home_tutor/view/teacher/teacher_dashboard/teacher_dashboard.dart';
 import 'package:education_home_tutor/view/teacher/teacher_homework.dart/teacher_homework.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+ 
 
 class TeacherHomeBottomNav extends StatefulWidget {
   const TeacherHomeBottomNav({super.key});
@@ -29,7 +24,7 @@ class TeacherHomeBottomNavState extends State<TeacherHomeBottomNav> {
     const TeacherHomeworkView(),
     const TeacherAttendanceCreateView(),
     const MarkEntryView(),
-    Center(child: const Text('More'))
+    const Center(child: Text('More'))
     // const StudentResultView(),
     // const StudentFeeView(),
   ];
@@ -74,7 +69,7 @@ class TeacherHomeBottomNavState extends State<TeacherHomeBottomNav> {
             ),
             const SizedBox(width: 8),
           ],
-          backgroundColor: Colors.blue,
+          backgroundColor: AppColor.primaryColor,
           iconTheme: const IconThemeData(
             color: Colors.white,
           ),
@@ -106,7 +101,7 @@ class TeacherHomeBottomNavState extends State<TeacherHomeBottomNav> {
             
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue,
+          selectedItemColor: AppColor.primaryColor,
           unselectedItemColor: Colors.grey,
           onTap: _onItemTapped,
         ),

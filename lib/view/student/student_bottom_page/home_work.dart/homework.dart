@@ -92,6 +92,7 @@
 //   }
 // }
 
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/home_work.dart/home_work_details.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
@@ -196,7 +197,7 @@ class StudentHomeworkView extends StatelessWidget {
             },
             child: const Icon(
               Icons.visibility,
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
           ),
         ),

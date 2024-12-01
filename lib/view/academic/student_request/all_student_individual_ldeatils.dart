@@ -1,5 +1,6 @@
-import 'package:dotted_line/dotted_line.dart';
-import 'package:education_home_tutor/widget/custom_button.dart';
+ 
+import 'package:education_home_tutor/utils/colors.dart';
+ 
 import 'package:flutter/material.dart';
 
 class AllStudentIndividualDetails extends StatelessWidget {
@@ -9,7 +10,7 @@ class AllStudentIndividualDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
         foregroundColor: Colors.white,
         title: const Text('Student Details'),
       ),

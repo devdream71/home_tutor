@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class MarkEntryDetails extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
@@ -184,7 +185,7 @@ class MarkEntryDetails extends StatelessWidget {
               children: [
                 // Header Row
                 const TableRow(
-                  decoration: BoxDecoration(color: Colors.blue),
+                  decoration: BoxDecoration(color: AppColor.primaryColor),
                   children: [
                     Padding(
                       padding: EdgeInsets.all(8.0),
@@ -260,7 +261,7 @@ class MarkEntryDetails extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 16.0),
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: AppColor.primaryColor,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Text(

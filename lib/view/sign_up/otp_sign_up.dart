@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/utils/strings.dart';
 import 'package:education_home_tutor/view/login/login.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
@@ -79,7 +80,7 @@ class OTPSignUp extends StatelessWidget {
                         transition: Transition.rightToLeftWithFade);
                   },
                   text: "Login",
-                  color: Colors.blue,
+                  color: AppColor.primaryColor,
                 )
               ],
             ),

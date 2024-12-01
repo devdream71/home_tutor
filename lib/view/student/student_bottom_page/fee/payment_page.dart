@@ -1,11 +1,14 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class PaymentTableScreen extends StatefulWidget {
+  const PaymentTableScreen({super.key});
+
   @override
-  _PaymentTableScreenState createState() => _PaymentTableScreenState();
+  PaymentTableScreenState createState() => PaymentTableScreenState();
 }
 
-class _PaymentTableScreenState extends State<PaymentTableScreen> {
+class PaymentTableScreenState extends State<PaymentTableScreen> {
   // Dynamic data for rows
   final List<Map<String, dynamic>> paymentData = [
     {'billDate': '12-12-24', 'feeType': 'Monthly Tuition', 'amount': '500'},
@@ -32,7 +35,7 @@ class _PaymentTableScreenState extends State<PaymentTableScreen> {
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -57,7 +60,7 @@ class _PaymentTableScreenState extends State<PaymentTableScreen> {
                         children: [
                           // Header Row
                           const TableRow(
-                            decoration: BoxDecoration(color: Colors.blue),
+                            decoration: BoxDecoration(color: AppColor.primaryColor),
                             children: [
                               Center(
                                 child: Padding(

@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ class NewStudentRequestDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
         foregroundColor: Colors.white,
         title: const Text('Student Request Details'),
       ),

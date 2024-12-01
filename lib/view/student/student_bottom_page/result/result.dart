@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/result/result_details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -69,7 +70,7 @@ class StudentResultView extends StatelessWidget {
             },
             child: const Icon(
               Icons.visibility,
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
           ),
         ),

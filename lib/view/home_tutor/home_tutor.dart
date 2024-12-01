@@ -1,5 +1,6 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/utils/images.dart';
-import 'package:education_home_tutor/view/become_tutor/become_tutor.dart';
+import 'package:education_home_tutor/view/home_tutor/become_tutor.dart';
 import 'package:education_home_tutor/view/home_tutor/tutor_deatils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,7 @@ class HomeTutorPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  color: AppColor.primaryColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -151,7 +152,7 @@ class HomeTutorPage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                        color: AppColor.primaryColor,
                       ),
                     ),
                     SizedBox(height: 5),

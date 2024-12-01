@@ -1,9 +1,11 @@
 import 'dart:async';
-import 'package:education_home_tutor/view/academic/academic_login.dart';
+import 'package:education_home_tutor/utils/colors.dart';
+import 'package:education_home_tutor/view/academic/academic_auth/academic_login.dart';
 import 'package:education_home_tutor/view/home_tutor/home_tutor.dart';
 import 'package:education_home_tutor/view/login/login.dart';
-import 'package:education_home_tutor/view/student/student_log_in.dart';
-import 'package:education_home_tutor/view/teacher/teacher_login.dart';
+import 'package:education_home_tutor/view/parents/parents_login.dart';
+import 'package:education_home_tutor/view/student/student_auth/student_log_in.dart';
+import 'package:education_home_tutor/view/teacher/teacher_auth/teacher_login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -50,9 +52,10 @@ class HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.blueGrey[50],
+        backgroundColor: AppColor.appBGColor,
         body: SafeArea(
           child: Center(
             child: Column(
@@ -62,30 +65,30 @@ class HomeState extends State<Home> {
                 Column(
                   children: [
                     const SizedBox(height: 30),
-                    const Text(
-                      'Lorgate Academy',
-                      style: TextStyle(
-                        fontSize: 24,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
+                    // const Text(
+                    //   'Lorgate Academy',
+                    //   style: TextStyle(
+                    //     fontSize: 24,
+                    //     color: Colors.blue,
+                    //     fontWeight: FontWeight.bold,
+                    //   ),
+                    // ),
+                    const SizedBox(height: 30),
                     Image.asset(
                       'assets/education_logo.png',
                       height: 100,
                     ),
                     const SizedBox(height: 10),
-                    const Text(
+                    Text(
                       'Welcome To Lorgate',
-                      style: TextStyle(
+                      style: textTheme.bodySmall!.copyWith(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Text(
+                    Text(
                       'open the gate to all education',
-                      style: TextStyle(
+                      style: textTheme.bodySmall!.copyWith(
                         fontSize: 16,
                         color: Colors.black45,
                       ),
@@ -108,7 +111,6 @@ class HomeState extends State<Home> {
                             });
                           },
                           children: [
-                            
                             buildSliderItem('Academy', AppImages.splashLogo,
                                 () {
                               Get.to(
@@ -120,13 +122,13 @@ class HomeState extends State<Home> {
                             buildSliderItem('Teacher', AppImages.splashLogo,
                                 () {
                               Get.to(const TeacherLoginView(),
-                               arguments: 'Teacher',
+                                  arguments: 'Teacher',
                                   transition: Transition.rightToLeftWithFade);
                             }),
                             buildSliderItem('Student', AppImages.splashLogo,
                                 () {
                               Get.to(const Login(),
-                               arguments: 'Student',
+                                  arguments: 'Student',
                                   transition: Transition.rightToLeftWithFade);
                             }),
                             buildSliderItem('Home Tutor', AppImages.splashLogo,
@@ -145,10 +147,10 @@ class HomeState extends State<Home> {
                           controller: _pageController,
                           count: 4, // Number of pages
                           effect: const ExpandingDotsEffect(
-                            activeDotColor: Colors.blue,
+                            activeDotColor: AppColor.primaryColor,
                             dotColor: Colors.grey,
-                            dotHeight: 10,
-                            dotWidth: 10,
+                            dotHeight: 8,
+                            dotWidth: 15,
                             expansionFactor: 3,
                           ),
                         ),
@@ -160,50 +162,174 @@ class HomeState extends State<Home> {
                 const SizedBox(height: 20),
 
                 // Chip Row
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                        onTap: () {
-                          Get.to(const AcademicLogin(),
-                           arguments: 'Academy',
-                              transition: Transition.rightToLeftWithFade);
-                        },
-                        child: const Chip(label: Text("Academy"))),
-                    const SizedBox(width: 10),
-                    InkWell(
-                        onTap: () {
-                          Get.to(const TeacherLoginView(),
-                           arguments: 'Teacher',
-                              transition: Transition.rightToLeftWithFade);
-                        },
-                        child: const Chip(label: Text("Teacher"))),
-                    const SizedBox(width: 10),
-                    InkWell(
-                        onTap: () {
-                          Get.to(const StudentLogIn(),
-                          arguments: 'Student',
-                              transition: Transition.rightToLeftWithFade);
-                        },
-                        child: const Chip(label: Text("Student"))),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                        onTap: () {
-                          Get.to(const Login(),
-                          arguments: 'Parents',
-                              transition: Transition.rightToLeftWithFade);
-                        },
-                        child: const Chip(label: Text("Parents"))),
-                    const SizedBox(width: 10),
-                    InkWell(
-                        onTap: () => Get.to(const HomeTutorPage(),
-                            transition: Transition.rightToLeftWithFade),
-                        child: const Chip(label: Text("Home Tutor"),),),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: AppColor.appWhiteColor),
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 28.0),
+                          child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text("Quick LInks")),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Get.to(
+                                  const AcademicLogin(),
+                                  arguments: 'Academy',
+                                  transition: Transition.rightToLeftWithFade,
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryColor,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 3.0),
+                                child: const Text(
+                                  "Academy",
+                                  style: TextStyle(
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            InkWell(
+                              onTap: () {
+                                Get.to(
+                                  const TeacherLoginView(),
+                                  arguments: 'Academy',
+                                  transition: Transition.rightToLeftWithFade,
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryColor,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 3.0),
+                                child: const Text(
+                                  "Teacher",
+                                  style: TextStyle(
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            InkWell(
+                              onTap: () {
+                                Get.to(const StudentLogIn(),
+                                    arguments: 'Student',
+                                    transition: Transition.rightToLeftWithFade);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryColor,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 3.0),
+                                child: const Text(
+                                  "Student",
+                                  style: TextStyle(
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Get.to(const ParentsLogin(),
+                                    arguments: 'Parents',
+                                    transition: Transition.rightToLeftWithFade);
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryColor,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 3.0),
+                                child: const Text(
+                                  "Parents",
+                                  style: TextStyle(
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            InkWell(
+                              onTap: () => Get.to(const HomeTutorPage(),
+                                  transition: Transition.rightToLeftWithFade),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: AppColor.primaryColor,
+                                  border: Border.all(
+                                    color: Colors.white,
+                                    width: 1.5,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 25.0, vertical: 3.0),
+                                child: const Text(
+                                  "Home Tutor",
+                                  style: TextStyle(
+                                    color: AppColor.appWhiteColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
 
                 const Spacer(),
@@ -244,7 +370,7 @@ class HomeState extends State<Home> {
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
           ),
         ],

@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/complete_student_profile.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +9,7 @@ class StartStudentProfileCreate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String title = Get.arguments is String ? Get.arguments : "Login";
+    //final String title = Get.arguments is String ? Get.arguments : "Login";
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -26,7 +27,7 @@ class StartStudentProfileCreate extends StatelessWidget {
                 'Please Create Student Profile',
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.blue,
+                  color: AppColor.primaryColor,
                 ),
               ),
               const SizedBox(
@@ -48,7 +49,7 @@ class StartStudentProfileCreate extends StatelessWidget {
                       transition: Transition.rightToLeftWithFade);
                 },
                 text: "Start",
-                color: Colors.blue,
+                color: AppColor.primaryColor,
               ),
               const SizedBox(
                 height: 15,

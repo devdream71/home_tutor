@@ -1,7 +1,14 @@
 import 'package:education_home_tutor/view/academic/academic_home/academic_home.dart';
+import 'package:education_home_tutor/view/academic/account/account_no_app_bar.dart';
+ 
+import 'package:education_home_tutor/view/academic/home_work/home_work_to_appbar.dart';
+import 'package:education_home_tutor/view/academic/more/more.dart';
+import 'package:education_home_tutor/view/academic/student_request/all_student_no_app_bar.dart';
 import 'package:education_home_tutor/view/academic/student_request/student_request.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:badges/badges.dart' as badges;
 
 class AcademicHomeBottomNav extends StatefulWidget {
   const AcademicHomeBottomNav({super.key});
@@ -17,10 +24,22 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
   // Screens for each tab
   static final List<Widget> _pages = <Widget>[
     AcademicHome(),
-    const Center(child: Text('Home work')),
-    const Center(child: Text('Account')),
-    const Center(child: Text('Student')),
-    const Center(child: Text('More')),
+    // const Center(child: Text('Home work')),
+    //AcademicHomeworkView(),
+    // const Center(child: Text('Account')),
+    //const Center(child: Text('Student')),
+    const AcademicHomeworkNoAppBarView(),
+    const AcademicAccountNoAppBar(),
+    const AllStudentNoAppBar(),
+    const More()
+  ];
+
+  static final List<String> _titles = [
+    'Laksam Cambrian',
+    'Home Work',
+    'Account',
+    'Student',
+    'More',
   ];
 
   // Function to handle tab selection
@@ -41,25 +60,37 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
       onWillPop: _onWillPop,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Laksam Cambrian',
-            style: TextStyle(color: Colors.white),
+          title: Text(
+            _titles[_selectedIndex], // Dynamic title
+            style: const TextStyle(color: Colors.white),
           ),
           actions: [
+            // InkWell(
+            //   onTap: () {
+            //     Get.to(const StudentRequest(),
+            //         transition: Transition.rightToLeftWithFade);
+            //   },
+            //   child:
+            //   CircleAvatar(
+            //     radius: 15,
+            //     backgroundColor: Colors.green.withOpacity(0.8),
+            //     child: const Text(
+            //       '12',
+            //       style: TextStyle(color: Colors.white, fontSize: 12),
+            //     ),
+            //   ),
+            // ),
             InkWell(
               onTap: () {
                 Get.to(const StudentRequest(),
                     transition: Transition.rightToLeftWithFade);
               },
-              child: CircleAvatar(
-                radius: 15,
-                backgroundColor: Colors.green.withOpacity(0.8),
-                child: const Text(
-                  '12',
-                  style: TextStyle(color: Colors.white, fontSize: 12),
-                ),
+              child: const badges.Badge(
+                badgeContent: Text('3'),
+                child: Icon(Icons.account_circle),
               ),
             ),
+
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.notifications),
@@ -87,7 +118,7 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_balance_wallet),
-              label: 'account',
+              label: 'Account',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.shopping_bag),

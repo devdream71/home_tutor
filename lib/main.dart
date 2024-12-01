@@ -1,19 +1,21 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:education_home_tutor/view/academic/academic_home/academic_home.dart';
+import 'package:education_home_tutor/utils/colors.dart';
+ 
 import 'package:education_home_tutor/view/splash/splash.dart';
-import 'package:flutter/foundation.dart';
+ 
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
-    ),
-  );
+  //   DevicePreview(
+  //     enabled: !kReleaseMode,
+  //     builder: (context) => const MyApp(), // Wrap your app
+  //   ),
+  // );
 
-  //const MyApp());
+  const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,8 +30,9 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
+        //useMaterial3: true,
+         textTheme: TextTheme(bodySmall: GoogleFonts.roboto()),
       ),
       home: const Splash(),
       // home: AcademicHome(),

@@ -1,6 +1,5 @@
-import 'package:education_home_tutor/view/student/student_bottom_page/home_work.dart/home_work_details.dart';
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/teacher/teacher_attendance/teacher_attendance_create.dart';
-import 'package:education_home_tutor/view/teacher/teacher_homework.dart/teacher_homework_create.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +24,7 @@ class TeacherAttendanceCreateView extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     //Handle pay button action
-                    Get.to(  TeacherAttendanceCreate(),
+                    Get.to( const TeacherAttendanceCreate(),
                         transition: Transition.rightToLeftWithFade);
                   },
                   child: Container(
@@ -33,7 +32,7 @@ class TeacherAttendanceCreateView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Text(
@@ -136,7 +135,7 @@ class TeacherAttendanceCreateView extends StatelessWidget {
             },
             child: const Icon(
               Icons.edit_note,
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
           ),
         ),

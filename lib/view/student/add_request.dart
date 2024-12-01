@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/request_pending.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
@@ -55,7 +56,6 @@ class AddRequest extends StatelessWidget {
               ),
               const LabelWithAsterisk(
                 labelText: "Session",
-                
               ),
               const CustomTextFormField(
                 hintText: "",
@@ -80,7 +80,7 @@ class AddRequest extends StatelessWidget {
                       transition: Transition.rightToLeftWithFade);
                 },
                 text: "Request",
-                color: Colors.blue,
+                color: AppColor.primaryColor,
               ),
             ],
           ),

@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/teacher/teacher_homework.dart/home_work_view_deatils.dart';
 import 'package:education_home_tutor/view/teacher/teacher_homework.dart/teacher_homework_create.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
@@ -32,7 +33,7 @@ class TeacherHomeworkView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Text(
@@ -141,7 +142,7 @@ class TeacherHomeworkView extends StatelessWidget {
             },
             child: const Icon(
               Icons.edit_note,
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
           ),
         ),

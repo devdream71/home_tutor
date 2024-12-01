@@ -1,4 +1,5 @@
 import 'package:education_home_tutor/home.dart';
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +21,7 @@ class _SettingsState extends State<Settings> {
             style: TextStyle(color: Colors.white),
           ),
           iconTheme: const IconThemeData(color: Colors.white),
-          backgroundColor: Colors.blue,
+          backgroundColor: AppColor.primaryColor,
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),

@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class TeacherDashBoardVIew extends StatelessWidget {
@@ -96,7 +97,7 @@ class TeacherDashBoardVIew extends StatelessWidget {
               const SizedBox(height: 16),
               // Notes Board Table
               const Divider(
-                color: Colors.blue,
+                color: AppColor.primaryColor,
               ),
               const SizedBox(height: 16),
               const Text(
@@ -141,7 +142,7 @@ class TeacherDashBoardVIew extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            "$label",
+            label,
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
@@ -157,7 +158,7 @@ class TeacherDashBoardVIew extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
       decoration: BoxDecoration(
-        color: Colors.blue,
+        color: AppColor.primaryColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
@@ -190,7 +191,7 @@ class TeacherDashBoardVIew extends StatelessWidget {
         const DataCell(
           Icon(
             Icons.visibility,
-            color: Colors.blue,
+            color: AppColor.primaryColor,
           ),
         ),
       ],

@@ -1,14 +1,17 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
 
 class TeacherAttendanceCreate extends StatefulWidget {
+  const TeacherAttendanceCreate({super.key});
+
   @override
-  _TeacherAttendanceCreateState createState() =>
-      _TeacherAttendanceCreateState();
+  TeacherAttendanceCreateState createState() =>
+      TeacherAttendanceCreateState();
 }
 
-class _TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
+class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
   // Dynamic data for rows
   final List<Map<String, dynamic>> paymentData = [
     {'billDate': '01', 'feeType': 'Md. A', 'amount': '500'},
@@ -35,7 +38,7 @@ class _TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: AppColor.primaryColor,
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -171,7 +174,7 @@ class _TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                         children: [
                           // Header Row
                           const TableRow(
-                            decoration: BoxDecoration(color: Colors.blue),
+                            decoration: BoxDecoration(color: AppColor.primaryColor),
                             children: [
                               
                               Padding(
@@ -232,7 +235,7 @@ class _TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                       const SizedBox(height: 16),
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: AppColor.primaryColor,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 32, vertical: 16),
                           shape: RoundedRectangleBorder(

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -25,6 +24,7 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarColor: Colors.black,
@@ -42,9 +42,9 @@ class _SplashState extends State<Splash> {
               () => AnimatedOpacity(
                 opacity: splashController.textOpacity.value,
                 duration: const Duration(seconds: 1),
-                child: const Text(
+                child: Text(
                   AppStrings.splashScreenIntro,
-                  style: TextStyle(
+                  style: textTheme.bodySmall!.copyWith(
                     color: AppColor.appSplashScreenBG,
                     fontWeight: FontWeight.w500,
                     fontSize: 17.0,

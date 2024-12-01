@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/academic/academic_home/academic_homebottom_nav.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ class SignUpAwaiting extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(
                 height: 40,
@@ -43,7 +46,7 @@ class SignUpAwaiting extends StatelessWidget {
                     Get.offAll(const AcademicHomeBottomNav());
                   },
                   text: "Pending",
-                  color: Colors.blue,
+                  color: AppColor.primaryColor,
                 ),
               ),
               const SizedBox(
@@ -60,35 +63,41 @@ class SignUpAwaiting extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 250,
+                height: 40,
               ),
-              const CircleAvatar(
-                radius: 42,
-                child: CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage("assets/dream_tech.jpg"),
+              const SizedBox(
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 42,
+                      child: CircleAvatar(
+                        radius: 40,
+                        backgroundImage: AssetImage("assets/dream_tech.jpg"),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        'Our contact information',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        '+880 1984 994406',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              const Center(
-                child: Text(
-                  textAlign: TextAlign.center,
-                  'Our contact information',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Center(
-                child: Text(
-                  textAlign: TextAlign.center,
-                  '+880 1984 994406',
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              )
             ],
           ),
         ),

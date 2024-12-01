@@ -1,4 +1,6 @@
-import 'package:education_home_tutor/view/academic/academic_sign_up.dart';
+import 'package:education_home_tutor/utils/colors.dart';
+import 'package:education_home_tutor/utils/validator.dart';
+import 'package:education_home_tutor/view/academic/academic_auth/academic_sign_up.dart';
 import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
@@ -13,6 +15,11 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final String title = Get.arguments is String ? Get.arguments : "Login";
+    TextEditingController nameController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
+    final appValidator = AppValidation();
+
     return SafeArea(
       child: Scaffold(
         body: Padding(
@@ -65,7 +72,7 @@ class Login extends StatelessWidget {
                         TextSpan(
                           text: title.toUpperCase(),
                           style: const TextStyle(
-                            color: Colors.blue,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                           recognizer: TapGestureRecognizer()
@@ -89,8 +96,10 @@ class Login extends StatelessWidget {
                 const LabelWithAsterisk(
                   labelText: "Email or Mobile Number",
                 ),
-                const CustomTextFormField(
+                  CustomTextFormField(
                   hintText: "",
+                  controller: nameController,
+                  validator: (value) => appValidator.validateName(value),
                 ),
 
                 const SizedBox(
@@ -100,8 +109,10 @@ class Login extends StatelessWidget {
                 const LabelWithAsterisk(
                   labelText: "Password",
                 ),
-                const CustomTextFormField(
+                  CustomTextFormField(
                   hintText: "",
+                  controller: passwordController,
+                  validator: (value) => appValidator.validatePassword(value),
                 ),
 
                 const SizedBox(
@@ -112,7 +123,7 @@ class Login extends StatelessWidget {
                     //Get.to(const OTPSignUp(), transition: Transition.rightToLeftWithFade);
                   },
                   text: "Login",
-                  color: Colors.blue,
+                  color: AppColor.primaryColor,
                 ),
 
                 const SizedBox(
@@ -134,7 +145,7 @@ class Login extends StatelessWidget {
                       TextSpan(
                         text: "reset here".toUpperCase(),
                         style: const TextStyle(
-                          color: Colors.blue,
+                          color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold,
                         ),
                         recognizer: TapGestureRecognizer()
@@ -163,7 +174,7 @@ class Login extends StatelessWidget {
                         TextSpan(
                           text: "sign-up".toUpperCase(),
                           style: const TextStyle(
-                            color: Colors.blue,
+                            color: AppColor.primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
                           recognizer: TapGestureRecognizer()

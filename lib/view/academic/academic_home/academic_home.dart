@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/academic/academic_class/academic_class.dart';
 import 'package:education_home_tutor/view/academic/attendance/attendance.dart';
 import 'package:education_home_tutor/view/academic/home_work/home_work.dart';
@@ -13,28 +14,17 @@ import 'package:get/get.dart';
 class AcademicHome extends StatelessWidget {
   AcademicHome({super.key});
 
-  final List<Map<String, dynamic>> items = [
-    {
-      'label': 'Attendance',
-      'icon': Icons.calendar_today,
-      'color': Colors.blue[100]
-    },
-    {'label': 'Teachers Info', 'icon': Icons.note, 'color': Colors.purple[100]},
-    {'label': 'Class', 'icon': Icons.checklist, 'color': Colors.teal[100]},
-    {
-      'label': 'Mark Entry',
-      'icon': Icons.event_note,
-      'color': Colors.blue[100]
-    },
-    {
-      'label': 'Home Work',
-      'icon': Icons.edit_note,
-      'color': Colors.yellow[100]
-    },
-    {'label': 'Student Info', 'icon': Icons.group, 'color': Colors.pink[100]},
-    {'label': 'Result', 'icon': Icons.message, 'color': Colors.purple[100]},
-    {'label': 'Notice', 'icon': Icons.event, 'color': Colors.green[100]},
-    {'label': 'Routine', 'icon': Icons.event_note, 'color': Colors.blue[100]},
+  // List of menu items
+  final List<Map<String, dynamic>> menuItems = [
+    {"icon": Icons.school, "label": "Teacher info"},
+    {"icon": Icons.group, "label": "Student Info"},
+    {"icon": Icons.checklist, "label": "Class"},
+    {"icon": Icons.event_note, "label": "Home work"},
+    {"icon": Icons.edit_note, "label": "Attendance"},
+    {"icon": Icons.group, "label": "Routine"},
+    {"icon": Icons.event, "label": "Mark Entry"},
+    {"icon": Icons.event_note, "label": "Result"},
+    {"icon": Icons.edit_note, "label": "Notice"},
   ];
 
   @override
@@ -46,93 +36,6 @@ class AcademicHome extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4,
-                    mainAxisSpacing: 16,
-                    crossAxisSpacing: 16,
-                  ),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    final item = items[index];
-                    return GestureDetector(
-                      onTap: () {
-                        // Handle individual item clicks
-                        switch (item['label']) {
-                          case 'Attendance':
-                            Get.to(Attendance(), transition: Transition.rightToLeftWithFade); 
-                            break;
-                          case 'Teachers Info':
-                            Get.to(const AllTeacher(),
-                                transition: Transition.rightToLeftWithFade);
-                            break;
-                          case 'Class':
-                          Get.to(const AcademicClass(),
-                                transition: Transition.rightToLeftWithFade);
-                            break;
-                          case 'Mark Entry':
-                            Get.to(const MarkEntryPage(),
-                                transition: Transition.rightToLeftWithFade);
-
-                            break;
-                          case 'Home Work':
-                            Get.to(  HomeWorkPage(),
-                                transition: Transition.rightToLeftWithFade);
-                            break;
-                          case 'Student Info':
-                            Get.to(const AllStudent(),
-                                transition: Transition.rightToLeftWithFade);
-                            break;
-                          case 'Result':
-                            Get.to(const ResultPage(),
-                                transition: Transition.rightToLeftWithFade);
-
-                            break;
-                          case 'Notice':
-                            Get.to(const NoticePage(),
-                                transition: Transition.rightToLeftWithFade);
-
-                            break;
-                          case 'Routine':
-                            Get.to(const Routine(),
-                                transition: Transition.rightToLeftWithFade);
-                            break;
-                          default:
-                            print('Unknown item clicked');
-                            break;
-                        }
-                      },
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: item['color'],
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Icon(
-                              item['icon'],
-                              color: Colors.black54,
-                              size: 25,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            item['label'],
-                            style: const TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w500),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
                 const SizedBox(
                   height: 8,
                 ),
@@ -141,37 +44,38 @@ class AcademicHome extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //teacher===>
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.school, color: Colors.white),
-                      onPressed: () {},
-                      label: const Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Teacher",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                    SizedBox(
+                      width: 130,
+                      child: ElevatedButton.icon(
+                        icon: const Icon(Icons.school, color: Colors.white),
+                        onPressed: () {},
+                        label: const Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Teacher",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '25',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
+                            Text(
+                              '25',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
                             ),
+                          ],
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColor.primaryColor,
+                          padding: const EdgeInsets.all(8),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue, // Button fill color
-                        padding: const EdgeInsets.all(
-                            8), // Padding inside the button
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(15), // Circular border
                         ),
                       ),
                     ),
@@ -180,37 +84,42 @@ class AcademicHome extends StatelessWidget {
                     ),
 
                     //student ====>
-                    ElevatedButton.icon(
-                      icon: const Icon(Icons.diversity_3, color: Colors.white),
-                      onPressed: () {},
-                      label: const Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Student",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                    SizedBox(
+                      width: 130,
+                      child: ElevatedButton.icon(
+                        icon:
+                            const Icon(Icons.diversity_3, color: Colors.white),
+                        onPressed: () {},
+                        label: const Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Student",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          Text(
-                            '400',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.white,
+                            Text(
+                              '400',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                              ),
                             ),
+                          ],
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              AppColor.primaryColor, // Button fill color
+                          padding: const EdgeInsets.all(
+                              8), // Padding inside the button
+                          shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(15), // Circular border
                           ),
-                        ],
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue, // Button fill color
-                        padding: const EdgeInsets.all(
-                            8), // Padding inside the button
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(15), // Circular border
                         ),
                       ),
                     ),
@@ -223,7 +132,7 @@ class AcademicHome extends StatelessWidget {
 
                 ///today, offline, online--->
                 SizedBox(
-                  height: 200,
+                  height: 150,
                   width: double.infinity,
                   child: Card(
                     child: Padding(
@@ -240,7 +149,7 @@ class AcademicHome extends StatelessWidget {
                                 color: Colors.black), //
                           ),
                           const SizedBox(
-                            height: 3,
+                            height: 8,
                           ),
                           const Align(
                             alignment: Alignment.topLeft,
@@ -297,6 +206,9 @@ class AcademicHome extends StatelessWidget {
                                     child: OutlinedButton(
                                       onPressed: () {},
                                       style: OutlinedButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 5),
+                                        minimumSize: const Size(0, 0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -313,6 +225,9 @@ class AcademicHome extends StatelessWidget {
                                     child: OutlinedButton(
                                       onPressed: () {},
                                       style: OutlinedButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 5),
+                                        minimumSize: const Size(0, 0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -320,51 +235,6 @@ class AcademicHome extends StatelessWidget {
                                       ),
                                       child: const Text(
                                         '৳ 100',
-                                        style: TextStyle(color: Colors.green),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Expense'),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              Row(
-                                children: [
-                                  SizedBox(
-                                    width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                        ),
-                                      ),
-                                      child: const Text('৳ 2000'),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 10,
-                                  ),
-                                  SizedBox(
-                                    width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                        ),
-                                      ),
-                                      child: const Text(
-                                        '৳ 900',
                                         style: TextStyle(color: Colors.green),
                                       ),
                                     ),
@@ -413,6 +283,9 @@ class AcademicHome extends StatelessWidget {
                                     child: OutlinedButton(
                                       onPressed: () {},
                                       style: OutlinedButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 5),
+                                        minimumSize: const Size(0, 0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -442,6 +315,9 @@ class AcademicHome extends StatelessWidget {
                                     child: OutlinedButton(
                                       onPressed: () {},
                                       style: OutlinedButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 5),
+                                        minimumSize: const Size(0, 0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -471,6 +347,9 @@ class AcademicHome extends StatelessWidget {
                                     child: OutlinedButton(
                                       onPressed: () {},
                                       style: OutlinedButton.styleFrom(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 5),
+                                        minimumSize: const Size(0, 0),
                                         shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(12),
@@ -491,6 +370,111 @@ class AcademicHome extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                 
+
+                const SizedBox(
+                  height: 15,
+                ),
+
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 8.0, left: 8, right: 8, bottom: 0),
+                    child: GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 4,
+                        crossAxisSpacing: 6,
+                        mainAxisSpacing: 6,
+                        childAspectRatio: 1,
+                      ),
+                      itemCount: menuItems.length,
+                      itemBuilder: (context, index) {
+                        final menu = menuItems[index];
+                        return GestureDetector(
+                          onTap: () {
+                            switch (menu['label']) {
+                              case 'Teacher info':
+                                Get.to(const AllTeacher(),
+                                    transition: Transition.rightToLeftWithFade);
+                                break;
+
+                              case 'Student Info':
+                                Get.to(const AllStudent(),
+                                    transition: Transition.rightToLeftWithFade);
+                                break;
+
+                              case 'Class':
+                                Get.to(const AcademicClass(),
+                                    transition: Transition.rightToLeftWithFade);
+                                break;
+
+                              case 'Home work':
+                                Get.to(const AcademicHomeworkView(),
+                                    transition: Transition.rightToLeftWithFade);
+                                break;
+
+                              case 'Attendance':
+                                Get.to(const AcademicAttendanceCreateView(),
+                                    transition: Transition.rightToLeftWithFade);
+                                break;
+
+                              case 'Routine':
+                                Get.to(const Routine(),
+                                    transition: Transition.rightToLeftWithFade);
+                                break;
+
+                              case 'Mark Entry':
+                                Get.to(const AcademicMarkEntryView(),
+                                    transition: Transition.rightToLeftWithFade);
+
+                                break;
+
+                              case 'Result':
+                                Get.to(const ResultPage(),
+                                    transition: Transition.rightToLeftWithFade);
+
+                                break;
+                              case 'Notice':
+                                Get.to(const AcademicNoticePage(),
+                                    transition: Transition.rightToLeftWithFade);
+
+                                break;
+
+                              default:
+                                print('Unknown item clicked');
+                                break;
+                            }
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CircleAvatar(
+                                radius: 24, // Adjust icon size
+                                backgroundColor: Colors.blue.withOpacity(0.1),
+                                child: Icon(
+                                  menuItems[index]['icon'],
+                                  color: Colors.blue,
+                                  size: 28,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                menuItems[index]['label'],
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                )
               ],
             ),
           ),

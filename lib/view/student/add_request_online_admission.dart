@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/add_request.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class AddRequestOnlineAdmission extends StatelessWidget {
 
             const Text(
               'Your are in no Academy',
-              style: TextStyle(color: Colors.blue),
+              style: TextStyle(color: AppColor.primaryColor),
             ),
 
              const SizedBox(height: 15,),
@@ -33,7 +34,7 @@ class AddRequestOnlineAdmission extends StatelessWidget {
                     transition: Transition.rightToLeftWithFade);
               },
               text: "Add Request",
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
             const SizedBox(width: 10,),
              
@@ -51,12 +52,12 @@ class AddRequestOnlineAdmission extends StatelessWidget {
                     text: 'Please',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      color: Colors.blue
+                      color: AppColor.primaryColor
                     ),
                   ),
                   TextSpan(
                       text: ' Add Request',
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue)),
+                      style: TextStyle(fontWeight: FontWeight.bold, color: AppColor.primaryColor)),
                    
                 ],
               ),

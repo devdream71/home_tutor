@@ -1,5 +1,5 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/teacher/mark/mark_entry_details.dart';
-import 'package:education_home_tutor/view/teacher/teacher_homework.dart/teacher_homework_create.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -29,7 +29,7 @@ class MarkEntryView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       vertical: 8.0, horizontal: 16.0),
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: AppColor.primaryColor,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Text(
@@ -49,37 +49,40 @@ class MarkEntryView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            FittedBox(
-              child: DataTable(
-                headingRowColor: WidgetStateColor.resolveWith(
-                    (states) => Colors.blue.shade100),
-                columns: const [
-                  DataColumn(label: Text("Exam Routine")),
-                  DataColumn(label: Text("Class")),
-                  DataColumn(label: Text("Action")),
-                ],
-                rows: [
-                  buildNotesRow(
-                    context,
-                    'Annual Exam',
-                    "One",
-                  ),
-                  buildNotesRow(
-                    context,
-                    'Class Test',
-                    "One",
-                  ),
-                  buildNotesRow(
-                    context,
-                    'Class Test',
-                    "One",
-                  ),
-                  buildNotesRow(
-                    context,
-                    'Class Test',
-                    "One",
-                  ),
-                ],
+            SizedBox(
+              width: double.infinity,
+              child: FittedBox(
+                child: DataTable(
+                  headingRowColor: WidgetStateColor.resolveWith(
+                      (states) => Colors.blue.shade100),
+                  columns: const [
+                    DataColumn(label: Text("Exam Routine")),
+                    DataColumn(label: Text("Class")),
+                    DataColumn(label: Text("Action")),
+                  ],
+                  rows: [
+                    buildNotesRow(
+                      context,
+                      'Annual Exam',
+                      "One",
+                    ),
+                    buildNotesRow(
+                      context,
+                      'Class Test',
+                      "One",
+                    ),
+                    buildNotesRow(
+                      context,
+                      'Class Test',
+                      "One",
+                    ),
+                    buildNotesRow(
+                      context,
+                      'Class Test',
+                      "One",
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -105,7 +108,7 @@ class MarkEntryView extends StatelessWidget {
             },
             child: const Icon(
               Icons.edit_note,
-              color: Colors.blue,
+              color: AppColor.primaryColor,
             ),
           ),
         ),

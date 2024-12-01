@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class StudentExamView extends StatelessWidget {
@@ -96,7 +97,7 @@ class StudentExamView extends StatelessWidget {
         const DataCell(
           Icon(
             Icons.download,
-            color: Colors.blue,
+            color: AppColor.primaryColor,
           ),
         ),
       ],

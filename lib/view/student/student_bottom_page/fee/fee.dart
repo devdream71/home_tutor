@@ -1,8 +1,8 @@
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/fee/fee_report.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/fee/payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 
 class StudentFeeView extends StatelessWidget {
   const StudentFeeView({super.key});
@@ -22,7 +22,8 @@ class StudentFeeView extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {
                     // Handle pay button action
-                    Get.to(  PaymentTableScreen(), transition: Transition.rightToLeftWithFade);
+                    Get.to(const PaymentTableScreen(),
+                        transition: Transition.rightToLeftWithFade);
                   },
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -57,7 +58,7 @@ class StudentFeeView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 16.0),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: const Text(

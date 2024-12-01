@@ -105,6 +105,7 @@
 //   }
 // }
 
+import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/view/student/settings/settings.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/attendence.dart';
 import 'package:education_home_tutor/view/student/student_bottom_page/dashboard.dart';
@@ -114,7 +115,7 @@ import 'package:education_home_tutor/view/student/student_bottom_page/home_work.
 import 'package:education_home_tutor/view/student/student_bottom_page/result/result.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 
 class StudentHomeBottomNav extends StatefulWidget {
   const StudentHomeBottomNav({super.key});
@@ -176,7 +177,7 @@ class StudentHomeBottomNavState extends State<StudentHomeBottomNav> {
             ),
             const SizedBox(width: 8),
           ],
-          backgroundColor: Colors.blue,
+          backgroundColor: AppColor.primaryColor,
           iconTheme: const IconThemeData(
             color: Colors.white,
           ),
@@ -211,7 +212,7 @@ class StudentHomeBottomNavState extends State<StudentHomeBottomNav> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue,
+          selectedItemColor: AppColor.primaryColor,
           unselectedItemColor: Colors.grey,
           onTap: _onItemTapped,
         ),
