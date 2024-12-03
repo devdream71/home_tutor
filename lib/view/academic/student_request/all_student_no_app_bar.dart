@@ -1,19 +1,38 @@
- 
 import 'package:education_home_tutor/view/academic/student_request/all_student_individual_ldeatils.dart';
+import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AllStudentNoAppBar extends StatelessWidget {
+class AllStudentNoAppBar extends StatefulWidget {
   const AllStudentNoAppBar({super.key});
 
+  @override
+  State<AllStudentNoAppBar> createState() => _AllStudentNoAppBarState();
+}
+
+class _AllStudentNoAppBarState extends State<AllStudentNoAppBar> {
   @override
   Widget build(BuildContext context) {
     // Controllers for text fields
     final genderController = TextEditingController();
     final classController = TextEditingController();
 
+    final List<String> _className = [
+      "Class 6",
+      "Class 7",
+      "Class 8",
+      "Class 9",
+      "Class 10"
+    ];
+    String? _selectedClassName;
+
+    final List<String> _gender = [
+      'Male',
+      'Female',
+    ];
+    String? _selectedGender;
+
     return Scaffold(
-       
       body: Column(
         children: [
           Padding(
@@ -25,23 +44,80 @@ class AllStudentNoAppBar extends StatelessWidget {
                 ),
                 Row(
                   children: [
+                    SizedBox(
+                      width: 10,
+                    ),
                     Expanded(
-                      child: TextField(
-                        controller: genderController,
-                        decoration: const InputDecoration(
-                          labelText: 'Class',
-                          border: OutlineInputBorder(),
-                        ),
+                      child: Column(
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child:
+                                LabelWithAsterisk(labelText: "Session/Class"),
+                          ),
+                          DropdownButtonFormField<String>(
+                            decoration: InputDecoration(
+                              //hintText: "Select Session/Class",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              isDense: true,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                            ),
+                            value: _selectedClassName,
+                            items: _className.map((session) {
+                              return DropdownMenuItem<String>(
+                                value: session,
+                                child: Text(session),
+                              );
+                            }).toList(),
+                            onChanged: (value) {
+                              setState(() {
+                                _selectedClassName = value;
+                              });
+                            },
+                          ),
+                        ],
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Expanded(
-                      child: TextField(
-                        controller: classController,
-                        decoration: const InputDecoration(
-                          labelText: 'Gender',
-                          border: OutlineInputBorder(),
-                        ),
+                      child: Column(
+                        children: [
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: LabelWithAsterisk(labelText: "Period"),
+                          ),
+                          DropdownButtonFormField<String>(
+                            decoration: InputDecoration(
+                              //hintText: "Select Period",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              isDense: true, // Makes the field more compact
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 5), // Removes all padding
+                            ),
+                            value: _selectedGender,
+                            items: _gender.map((period) {
+                              return DropdownMenuItem<String>(
+                                value: period,
+                                child: Text(period),
+                              );
+                            }).toList(),
+                            onChanged: (value) {
+                              setState(() {
+                                _selectedGender = value;
+                              });
+                            },
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -50,47 +126,50 @@ class AllStudentNoAppBar extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView(
-              children: [
-                InkWell(
-                  onTap: () {
-                    Get.to(
-                      const AllStudentIndividualDetails(),
-                      transition: Transition.rightToLeft,
-                    );
-                  },
-                  child: const Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Get.to(
+                        const AllStudentIndividualDetails(),
+                        transition: Transition.rightToLeft,
+                      );
+                    },
+                    child: const Card(
+                      child: ListTile(
+                        leading: CircleAvatar(
+                          child: Text('1'),
+                        ),
+                        title: Text("Md. Jasim Uddin"),
+                        subtitle: Text('Class: Two'),
+                        trailing: Icon(Icons.arrow_forward_ios),
+                      ),
+                    ),
+                  ),
+                  const Card(
                     child: ListTile(
                       leading: CircleAvatar(
-                        child: Text('1'),
+                        child: Text('2'),
                       ),
-                      title: Text("Md. Jasim Uddin"),
-                      subtitle: Text('Class: Two'),
+                      title: Text("Md. Hasan Gaffar"),
+                      subtitle: Text('Class: Five'),
                       trailing: Icon(Icons.arrow_forward_ios),
                     ),
                   ),
-                ),
-                const Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text('2'),
+                  const Card(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        child: Text('3'),
+                      ),
+                      title: Text("Miss. Salma Begum"),
+                      subtitle: Text('Class: Seven'),
+                      trailing: Icon(Icons.arrow_forward_ios),
                     ),
-                    title: Text("Md. Hasan Gaffar"),
-                    subtitle: Text('Class: Five'),
-                    trailing: Icon(Icons.arrow_forward_ios),
                   ),
-                ),
-                const Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text('3'),
-                    ),
-                    title: Text("Miss. Salma Begum"),
-                    subtitle: Text('Class: Seven'),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

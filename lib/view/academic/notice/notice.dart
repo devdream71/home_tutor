@@ -32,6 +32,9 @@ class AcademicNoticePage extends StatelessWidget {
               child: DataTable(
                 headingRowColor: WidgetStateColor.resolveWith(
                     (states) => Colors.blue.shade100),
+                headingRowHeight: 28,
+                dataRowMinHeight: 26,
+                dataRowMaxHeight: 28,
                 columns: const [
                   DataColumn(label: Text("Publish Date")),
                   DataColumn(label: Text("Headline")),

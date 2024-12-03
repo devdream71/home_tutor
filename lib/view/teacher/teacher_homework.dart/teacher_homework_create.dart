@@ -3,16 +3,65 @@ import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
-class TeacherHomeworkCreateView extends StatelessWidget {
+class TeacherHomeworkCreateView extends StatefulWidget {
   const TeacherHomeworkCreateView({super.key});
+
+  @override
+  State<TeacherHomeworkCreateView> createState() =>
+      _TeacherHomeworkCreateViewState();
+}
+
+class _TeacherHomeworkCreateViewState extends State<TeacherHomeworkCreateView> {
+  final List<String> _sessions = ["Morning", "Afternoon", "Evening"];
+  String? _selectedSession;
+
+  final List<String> _teachers = ["MD. A", "MD. B", "Md. C", "Mrs. D"];
+  String? _selectedTeacher;
+
+  final List<String> _shift = [
+    "Morning",
+    "Day",
+  ];
+  String? _selectedShift;
+
+  final List<String> _section = ["A", "B", "C", "D"];
+  String? _selectedSection;
+
+  final List<String> _period = ["1st ", "2nd", "3rd", "4th"];
+  String? _selectedPeriod;
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null) {
+      setState(() {
+        _dateController.text = DateFormat('MMM d, yyyy').format(date);
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Set current date by default
+    _dateController.text = DateFormat('MMM d, yyyy').format(DateTime.now());
+  }
+
+  final TextEditingController _dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Home Work Create',
+          'Home Work Creat',
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
@@ -29,51 +78,126 @@ class TeacherHomeworkCreateView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Row(
+            Row(
               children: [
+                ////===>Session
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Session")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Session/Class"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          // hintText: "Select Session/Class",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedSession,
+                        items: _sessions.map((session) {
+                          return DropdownMenuItem<String>(
+                            value: session,
+                            child: Text(session),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedSession = value;
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
+                ////==>Teacher
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Teacher")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Teachers"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Teacher",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedTeacher,
+                        items: _teachers.map((teacher) {
+                          return DropdownMenuItem<String>(
+                            value: teacher,
+                            child: Text(teacher),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedTeacher = value;
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
 
-            const Row(
+            const SizedBox(
+              height: 10,
+            ),
+
+            Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Shift")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Shift"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Shift",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedShift,
+                        items: _shift.map((shift) {
+                          return DropdownMenuItem<String>(
+                            value: shift,
+                            child: Text(shift),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedShift = value;
+                          });
+                        },
                       ),
                     ],
                   ),
@@ -84,39 +208,73 @@ class TeacherHomeworkCreateView extends StatelessWidget {
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Section")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Section"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Section",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedSection,
+                        items: _section.map((section) {
+                          return DropdownMenuItem<String>(
+                            value: section,
+                            child: Text(section),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedSection = value;
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
 
-            const Row(
+            const SizedBox(
+              height: 10,
+            ),
+
+            Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Date")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Date"),
+                      ),
+                      GestureDetector(
+                        onTap: () => _pickDate(context),
+                        child: AbsorbPointer(
+                          child: CustomTextFormField(
+                            hintText: "Select Date",
+                            controller: _dateController,
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Expanded(
+                const Expanded(
                   child: Column(
                     children: [
                       Align(
@@ -128,17 +286,40 @@ class TeacherHomeworkCreateView extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Period")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Period"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Period",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedPeriod,
+                        items: _period.map((period) {
+                          return DropdownMenuItem<String>(
+                            value: period,
+                            child: Text(period),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedPeriod = value;
+                          });
+                        },
                       ),
                     ],
                   ),
@@ -174,6 +355,7 @@ class TeacherHomeworkCreateView extends StatelessWidget {
                 maxLines: 5,
               ),
             ),
+
             const SizedBox(height: 20),
             // Notes Section
             Container(
@@ -197,7 +379,7 @@ class TeacherHomeworkCreateView extends StatelessWidget {
               ),
               child: const CustomTextFormField(
                 hintText: "",
-                maxLines: 3,
+                maxLines: 5,
               ),
             ),
 

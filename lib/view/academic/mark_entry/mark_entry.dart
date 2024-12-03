@@ -81,6 +81,9 @@ class AcademicMarkEntryView extends StatelessWidget {
               width: double.infinity,
               child: FittedBox(
                 child: DataTable(
+                  headingRowHeight: 28,
+                  dataRowMinHeight: 26,
+                  dataRowMaxHeight: 26,
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
                   columns: const [

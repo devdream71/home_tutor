@@ -7,14 +7,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class AcademicHomeworkView extends StatefulWidget {
-  const AcademicHomeworkView({super.key});
+class AcademicHomeworkNoAppBarView extends StatefulWidget {
+  const AcademicHomeworkNoAppBarView({super.key});
 
   @override
-  State<AcademicHomeworkView> createState() => _AcademicHomeworkViewState();
+  State<AcademicHomeworkNoAppBarView> createState() =>
+      _AcademicHomeworkNoAppBarViewState();
 }
 
-class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
+class _AcademicHomeworkNoAppBarViewState
+    extends State<AcademicHomeworkNoAppBarView> {
   final TextEditingController _dateController = TextEditingController();
 
   final List<String> _sessions = ["Morning", "Afternoon", "Evening"];
@@ -23,45 +25,7 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
   final List<String> _period = ['1st', '2nd', '3rd', '4th'];
   String? _selectedPeriod;
 
-  // Future<void> _pickDateTime(BuildContext context) async {
-  //   // Step 1: Select date
-  //   final DateTime? date = await showDatePicker(
-  //     context: context,
-  //     initialDate: DateTime.now(),
-  //     firstDate: DateTime(2000),
-  //     lastDate: DateTime(2100),
-  //   );
-
-  //   if (date != null) {
-  //     // Step 2: Select time
-  //     final TimeOfDay? time = await showTimePicker(
-  //       context: context,
-  //       initialTime: TimeOfDay.now(),
-  //     );
-
-  //     if (time != null) {
-  //       // Combine date and time into a single DateTime
-  //       final DateTime dateTime = DateTime(
-  //         date.year,
-  //         date.month,
-  //         date.day,
-  //         time.hour,
-  //         time.minute,
-  //       );
-
-  //       // Step 3: Format the date and time
-  //       final String formattedDateTime =
-  //           DateFormat('MMM d, yyyy, h:mm a').format(dateTime);
-
-  //       // Update the controller
-  //       setState(() {
-  //         _dateController.text = formattedDateTime;
-  //       });
-  //     }
-  //   }
-  // }
-
-  Future<void> _pickDate(BuildContext context) async {
+    Future<void> _pickDate(BuildContext context) async {
     final DateTime? date = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -86,11 +50,6 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Work"),
-        backgroundColor: AppColor.primaryColor,
-        foregroundColor: Colors.white,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -115,7 +74,7 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: const Text(
-                    "Created",
+                    "Create",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -130,7 +89,7 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
             ),
             Column(
               children: [
-                Row(
+                 Row(
                   children: [
                     Expanded(
                       child: Column(
@@ -151,12 +110,15 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
                         ],
                       ),
                     ),
-                    const SizedBox(
+                     const SizedBox(
                       width: 10,
                     ),
                     const Expanded(
                       child: Column(
-                        children: [SizedBox()],
+                        children: [
+                          SizedBox()
+                           
+                        ],
                       ),
                     ),
                   ],
@@ -166,9 +128,7 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
                 ),
                 Row(
                   children: [
-                    const SizedBox(
-                      width: 10,
-                    ),
+                    
                     Expanded(
                       child: Column(
                         children: [
@@ -251,11 +211,11 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
             ),
             FittedBox(
               child: DataTable(
+                dataRowMaxHeight: 26,
+                headingRowHeight: 28,
+                dataRowMinHeight: 15,
                 headingRowColor: WidgetStateColor.resolveWith(
                     (states) => Colors.blue.shade100),
-                    headingRowHeight: 28,
-                    dataRowMinHeight: 26,
-                    dataRowMaxHeight: 26,
                 columns: const [
                   DataColumn(label: Text("SL")),
                   DataColumn(label: Text("Date")),

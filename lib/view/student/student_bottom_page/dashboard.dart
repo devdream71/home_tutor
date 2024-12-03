@@ -141,6 +141,9 @@ class StudentDashBoardVIew extends StatelessWidget {
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
+                      headingRowHeight: 26,
+                      dataRowMaxHeight: 26,
+                      dataRowMinHeight: 22,
                   columns: const [
                     DataColumn(label: Text("Period")),
                     DataColumn(label: Text("Subject")),
@@ -178,6 +181,9 @@ class StudentDashBoardVIew extends StatelessWidget {
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
+                      headingRowHeight: 28,
+                      dataRowMinHeight: 26,
+                      dataRowMaxHeight: 26,
                   columns: const [
                     DataColumn(label: Text("Publish Date")),
                     DataColumn(label: Text("Headline")),

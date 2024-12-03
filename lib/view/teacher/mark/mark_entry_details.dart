@@ -2,16 +2,59 @@ import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class MarkEntryDetails extends StatelessWidget {
+class MarkEntryDetails extends StatefulWidget {
   const MarkEntryDetails({super.key});
+
+  @override
+  State<MarkEntryDetails> createState() => _MarkEntryDetailsState();
+}
+
+class _MarkEntryDetailsState extends State<MarkEntryDetails> {
+  final TextEditingController _dateController = TextEditingController();
+
+  final List<String> _subject = ["Bangla", "English", "Mathe", "Islam"];
+  String? _selectedSubject;
+
+  final List<String> _teachers = ["MD. A", "MD. B", "Md. C", "Mrs. D"];
+  String? _selectedTeacher;
+
+  final List<String> _examtype = [
+    "First Term",
+    "Mid term",
+    "Final",
+    "Class Test"
+  ];
+  String? _selectedexamtype;
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null) {
+      setState(() {
+        _dateController.text = DateFormat('MMM d, yyyy').format(date);
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _dateController.text = DateFormat('MMM d, yyyy').format(DateTime.now());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Mark Entry Deatils ',
+          'Mark Entry Deatils',
           style: TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
@@ -21,24 +64,31 @@ class MarkEntryDetails extends StatelessWidget {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Date")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Date"),
+                      ),
+                      GestureDetector(
+                        onTap: () => _pickDate(context),
+                        child: AbsorbPointer(
+                          child: CustomTextFormField(
+                            hintText: "Select Date",
+                            controller: _dateController,
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Expanded(
+                const Expanded(
                   child: Column(
                     children: [
                       Align(
@@ -50,61 +100,141 @@ class MarkEntryDetails extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
-            const Row(
+            const SizedBox(
+              height: 5,
+            ),
+            Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Subject")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Session/Class"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Session/Class",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedSubject,
+                        items: _subject.map((shubject) {
+                          return DropdownMenuItem<String>(
+                            value: shubject,
+                            child: Text(shubject),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedSubject = value;
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Exam Type")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Exam Type"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Session/Class",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedexamtype,
+                        items: _examtype.map((examtype) {
+                          return DropdownMenuItem<String>(
+                            value: examtype,
+                            child: Text(examtype),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedexamtype = value;
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
               ],
             ),
-            const Row(
+            const SizedBox(
+              height: 5,
+            ),
+            Row(
               children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Teacher")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Teacher"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Session/Class",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedTeacher,
+                        items: _teachers.map((teacher) {
+                          return DropdownMenuItem<String>(
+                            value: teacher,
+                            child: Text(teacher),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedTeacher = value;
+                          });
+                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
+                ),
+                const Expanded(
+                  child: Column(
+                    children: [SizedBox()],
+                  ),
                 ),
               ],
             ),

@@ -394,53 +394,60 @@ class _AcademicSignUpState extends State<AcademicSignUp> {
                   const SizedBox(
                     height: 30,
                   ),
-                  Row(
-                    children: [
-                      Checkbox(
-                        value: isTermsAccepted,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isTermsAccepted = value ?? false;
-                          });
-                        },
-                      ),
-                      const Expanded(
-                        child: Text(
-                          'I accept the Terms and Conditions',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ),
-                    ],
-                  ),
-
-                  //  Row(
-                  //       children: [
-                  //         Checkbox(
-                  //           value: showFatherInfo,
-                  //           onChanged: (bool? value) {
-                  //             setState(() {
-                  //               showFatherInfo = value ?? false;
-                  //             });
-                  //           },
-                  //         ),
-                  //         const Text("Father Info"),
-                  //       ],
+                  // Row(
+                  //   children: [
+                  //     Checkbox(
+                  //       value: isTermsAccepted,
+                  //       onChanged: (bool? value) {
+                  //         setState(() {
+                  //           isTermsAccepted = value ?? false;
+                  //         });
+                  //       },
                   //     ),
-
+                  //     RichText(
+                  //       text: const TextSpan(
+                  //         text: 'I accept',
+                  //         style: TextStyle(color: Colors.black),
+                  //         children: [
+                  //           TextSpan(
+                  //             text: ' Terms',
+                  //             style: TextStyle(
+                  //                 fontWeight: FontWeight.w500,
+                  //                 color: Colors.blue),
+                  //           ),
+                  //           TextSpan(
+                  //               text: ' & ',
+                  //               style: TextStyle(
+                  //                 fontWeight: FontWeight.w500,
+                  //               )),
+                  //           TextSpan(
+                  //               text: ' Conditions.',
+                  //               style: TextStyle(
+                  //                   fontWeight: FontWeight.w500,
+                  //                   color: Colors.blue)),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                   const SizedBox(
                     height: 10,
                   ),
                   CustomButton(
                     onPressed: () {
-                      if (formKey.currentState?.validate() ?? false) {
                         Get.to(
                           const SignUpAwaiting(),
                           transition: Transition.rightToLeftWithFade,
                         );
-                      } else {
-                        // Optionally, display an error message or highlight invalid fields
-                        print("Form validation failed. Please fix the errors.");
-                      }
+                      // if (formKey.currentState?.validate() ?? false) {
+                      //   Get.to(
+                      //     const SignUpAwaiting(),
+                      //     transition: Transition.rightToLeftWithFade,
+                      //   );
+                      // } else {
+                      //   // Optionally, display an error message or highlight invalid fields
+                      //   print("Form validation failed. Please fix the errors.");
+                      // }
                     },
                     text: "Submit",
                     color: AppColor.primaryColor,

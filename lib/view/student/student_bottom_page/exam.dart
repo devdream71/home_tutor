@@ -12,40 +12,7 @@ class StudentExamView extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              // const Row(
-              //   children: [
-              //     Expanded(
-              //       child: Column(
-              //         children: [
-              //           Align(
-              //               alignment: Alignment.centerLeft,
-              //               child: LabelWithAsterisk(labelText: "Date")),
-              //           CustomTextFormField(
-              //             hintText: "",
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 10,
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         children: [
-              //           Align(
-              //             alignment: Alignment.centerLeft,
-              //             child: LabelWithAsterisk(labelText: "Period"),
-              //           ),
-              //           CustomTextFormField(
-              //             hintText: "",
-              //           ),
-              //         ],
-              //       ),
-              //     )
-
-              //     // const SizedBox(height: 8,),
-              //   ],
-              // ),
+              
               const SizedBox(
                 height: 20,
               ),
@@ -54,6 +21,9 @@ class StudentExamView extends StatelessWidget {
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
+                      headingRowHeight: 28,
+                      dataRowMaxHeight: 26,
+                      dataRowMinHeight: 26,
                   columns: const[
                      DataColumn(label: Text("Routine Name")),
                      DataColumn(label: Text("Exam Name")),

@@ -5,9 +5,46 @@ import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
-class TeacherHomeworkView extends StatelessWidget {
+class TeacherHomeworkView extends StatefulWidget {
   const TeacherHomeworkView({super.key});
+
+  @override
+  State<TeacherHomeworkView> createState() => _TeacherHomeworkViewState();
+}
+
+class _TeacherHomeworkViewState extends State<TeacherHomeworkView> {
+
+  final TextEditingController _dateController = TextEditingController();
+
+  final List<String> _session = ["Class Six", "Class Seven", "Class Eight",  ];
+  String? _selectedsession;
+
+  
+  final List<String> _period = ["1st", "2nd", "3rd", "4th", "5th"  ];
+  String? _selectedperiod;
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null) {
+      setState(() {
+        _dateController.text = DateFormat('MMM d, yyyy').format(date);
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _dateController.text = DateFormat('MMM d, yyyy').format(DateTime.now());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,53 +84,108 @@ class TeacherHomeworkView extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20,),
-              const Row(
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
                 children: [
                   Expanded(
                     child: Column(
                       children: [
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: LabelWithAsterisk(labelText: "Date")),
-                        CustomTextFormField(
-                          hintText: "",
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: LabelWithAsterisk(labelText: "Session/Class")),
-                        CustomTextFormField(
-                          hintText: "",
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Align(
+                        const Align(
                           alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Period"),
+                          child: LabelWithAsterisk(labelText: "Date"),
                         ),
-                        CustomTextFormField(
-                          hintText: "",
-                          showDropdownIcon: true,
+                        GestureDetector(
+                          onTap: () => _pickDate(context),
+                          child: AbsorbPointer(
+                            child: CustomTextFormField(
+                              hintText: "Select Date",
+                              controller: _dateController,
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                   Expanded(
+                            child: Column(
+                              children: [
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: LabelWithAsterisk(
+                                      labelText: "Session/Class"),
+                                ),
+                                DropdownButtonFormField<String>(
+                                  decoration: InputDecoration(
+                                    //hintText: "Select Session/Class",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 5,
+                                    ),
+                                  ),
+                                  value: _selectedsession,
+                                  items: _session.map((session) {
+                                    return DropdownMenuItem<String>(
+                                      value: session,
+                                      child: Text(session),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedsession = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                   Expanded(
+                            child: Column(
+                              children: [
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: LabelWithAsterisk(
+                                      labelText: "Session/Class"),
+                                ),
+                                DropdownButtonFormField<String>(
+                                  decoration: InputDecoration(
+                                    //hintText: "Select Session/Class",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 5,
+                                    ),
+                                  ),
+                                  value: _selectedperiod,
+                                  items: _period.map((period) {
+                                    return DropdownMenuItem<String>(
+                                      value: period,
+                                      child: Text(period),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedperiod = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
                 ],
               ),
               const SizedBox(
@@ -102,6 +194,9 @@ class TeacherHomeworkView extends StatelessWidget {
               DataTable(
                 headingRowColor: WidgetStateColor.resolveWith(
                     (states) => Colors.blue.shade100),
+                    headingRowHeight: 28,
+                    dataRowMinHeight: 26,
+                    dataRowMaxHeight: 27,
                 columns: const [
                   DataColumn(label: Text("SL")),
                   DataColumn(label: Text("Date")),

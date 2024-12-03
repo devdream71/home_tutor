@@ -20,6 +20,9 @@ class StudentResultView extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: DataTable(
+                  headingRowHeight: 28,
+                  dataRowMaxHeight: 26,
+                  dataRowMinHeight: 26,
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
                   columns: const [

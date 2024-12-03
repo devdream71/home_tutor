@@ -1,3 +1,4 @@
+import 'package:education_home_tutor/home.dart';
 import 'package:education_home_tutor/view/academic/account/account.dart';
 import 'package:education_home_tutor/view/academic/attendance/attendance.dart';
 import 'package:education_home_tutor/view/academic/home_work/home_work.dart';
@@ -122,6 +123,16 @@ class More extends StatelessWidget {
                     },
                   ),
                 ),
+                Card(
+                  child: ListTile(
+                    title: const Text("log out"),
+                    leading: const Icon(Icons.history_edu),
+                    trailing: const Icon(Icons.arrow_forward),
+                    onTap: () {
+                       _logout(context);
+                    },
+                  ),
+                ),
               ],
             ),
           ),
@@ -129,4 +140,28 @@ class More extends StatelessWidget {
       ),
     );
   }
+
+
+  Future<bool> _logout(context) async {
+  final shouldClose = await showDialog<bool>(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Log out'),
+      content: const Text('Are you sure you want to logout the app?'),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () =>
+              Get.off(const Home(), transition: Transition.rightToLeftWithFade),
+          child: const Text('logout'),
+        ),
+      ],
+    ),
+  );
+  return shouldClose ?? false; // Prevent exiting if dialog is dismissed
+}
+
 }

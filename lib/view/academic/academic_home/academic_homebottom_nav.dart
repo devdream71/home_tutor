@@ -1,7 +1,7 @@
 import 'package:education_home_tutor/view/academic/academic_home/academic_home.dart';
 import 'package:education_home_tutor/view/academic/account/account_no_app_bar.dart';
  
-import 'package:education_home_tutor/view/academic/home_work/home_work_to_appbar.dart';
+import 'package:education_home_tutor/view/academic/home_work/home_work_no_appbar.dart';
 import 'package:education_home_tutor/view/academic/more/more.dart';
 import 'package:education_home_tutor/view/academic/student_request/all_student_no_app_bar.dart';
 import 'package:education_home_tutor/view/academic/student_request/student_request.dart';
@@ -24,10 +24,7 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
   // Screens for each tab
   static final List<Widget> _pages = <Widget>[
     AcademicHome(),
-    // const Center(child: Text('Home work')),
-    //AcademicHomeworkView(),
-    // const Center(child: Text('Account')),
-    //const Center(child: Text('Student')),
+   
     const AcademicHomeworkNoAppBarView(),
     const AcademicAccountNoAppBar(),
     const AllStudentNoAppBar(),

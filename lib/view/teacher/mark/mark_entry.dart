@@ -44,17 +44,18 @@ class MarkEntryView extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
-            const SizedBox(
-              height: 20,
-            ),
+             
             SizedBox(
               width: double.infinity,
               child: FittedBox(
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
+                  headingRowHeight: 28,
+                  dataRowMinHeight: 26,
+                  dataRowMaxHeight: 26,    
                   columns: const [
                     DataColumn(label: Text("Exam Routine")),
                     DataColumn(label: Text("Class")),

@@ -80,6 +80,9 @@ class StudentFeeView extends StatelessWidget {
                 child: DataTable(
                   headingRowColor: WidgetStateColor.resolveWith(
                       (states) => Colors.blue.shade100),
+                  headingRowHeight: 28,
+                  dataRowMinHeight: 26,
+                  dataRowMaxHeight: 26,    
                   columns: const [
                     DataColumn(label: Text('Data')),
                     DataColumn(label: Text('Fee Type')),

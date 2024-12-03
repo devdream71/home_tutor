@@ -2,31 +2,64 @@ import 'package:education_home_tutor/utils/colors.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TeacherAttendanceCreate extends StatefulWidget {
   const TeacherAttendanceCreate({super.key});
 
   @override
-  TeacherAttendanceCreateState createState() =>
-      TeacherAttendanceCreateState();
+  TeacherAttendanceCreateState createState() => TeacherAttendanceCreateState();
 }
 
 class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
   // Dynamic data for rows
   final List<Map<String, dynamic>> paymentData = [
-    {'billDate': '01', 'feeType': 'Md. A', 'amount': '500'},
-    {'billDate': '02', 'feeType': 'Md. B', 'amount': '300'},
-    {'billDate': '03', 'feeType': 'Md. C', 'amount': '200'},
+    {'roll': '01', 'name': 'Md. A', 'amount': '500'},
+    {'roll': '02', 'name': 'Md. B', 'amount': '300'},
+    {'roll': '03', 'name': 'Md. C', 'amount': '200'},
   ];
 
   // Track checkbox states for each row
   List<bool> selectedRows = [];
+
+  final TextEditingController _dateController = TextEditingController();
+
+  final List<String> _sessions = ["Morning", "Afternoon", "Evening"];
+  String? _selectedSession;
+
+  final List<String> _teachers = ["MD. A", "MD. B", "Md. C", "Mrs. D"];
+  String? _selectedTeacher;
+
+  final List<String> _shift = [
+    "Morning",
+    "Day",
+  ];
+  String? _selectedShift;
+
+  final List<String> _section = ["A", "B", "C", "D"];
+  String? _selectedSection;
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null) {
+      setState(() {
+        _dateController.text = DateFormat('MMM d, yyyy').format(date);
+      });
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     // Initialize selectedRows with false for each entry in paymentData
     selectedRows = List<bool>.filled(paymentData.length, false);
+    _dateController.text = DateFormat('MMM d, yyyy').format(DateTime.now());
   }
 
   @override
@@ -52,97 +85,194 @@ class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const SizedBox(height: 10),
-                      const Row(
+                      Row(
                         children: [
                           Expanded(
                             child: Column(
                               children: [
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: LabelWithAsterisk(
-                                        labelText: "Session/Class")),
-                                CustomTextFormField(
-                                  hintText: "",
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: LabelWithAsterisk(
+                                      labelText: "Session/Class"),
+                                ),
+                                DropdownButtonFormField<String>(
+                                  decoration: InputDecoration(
+                                    //hintText: "Select Session/Class",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 5,
+                                    ),
+                                  ),
+                                  value: _selectedSession,
+                                  items: _sessions.map((session) {
+                                    return DropdownMenuItem<String>(
+                                      value: session,
+                                      child: Text(session),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedSession = value;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Expanded(
                             child: Column(
                               children: [
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: LabelWithAsterisk(
-                                        labelText: "Teacher")),
-                                CustomTextFormField(
-                                  hintText: "",
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child:
+                                      LabelWithAsterisk(labelText: "Teacher"),
+                                ),
+                                DropdownButtonFormField<String>(
+                                  decoration: InputDecoration(
+                                    //hintText: "Select Session/Class",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 5,
+                                    ),
+                                  ),
+                                  value: _selectedTeacher,
+                                  items: _teachers.map((teacher) {
+                                    return DropdownMenuItem<String>(
+                                      value: teacher,
+                                      child: Text(teacher),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedTeacher = value;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         children: [
                           Expanded(
                             child: Column(
                               children: [
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child:
-                                        LabelWithAsterisk(labelText: "Shift")),
-                                CustomTextFormField(
-                                  hintText: "",
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: LabelWithAsterisk(labelText: "Shift"),
+                                ),
+                                DropdownButtonFormField<String>(
+                                  decoration: InputDecoration(
+                                    //hintText: "Select Session/Class",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 5,
+                                    ),
+                                  ),
+                                  value: _selectedShift,
+                                  items: _shift.map((shift) {
+                                    return DropdownMenuItem<String>(
+                                      value: shift,
+                                      child: Text(shift),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedShift = value;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Expanded(
                             child: Column(
                               children: [
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child: LabelWithAsterisk(
-                                        labelText: "Section")),
-                                CustomTextFormField(
-                                  hintText: "",
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child:
+                                      LabelWithAsterisk(labelText: "Section"),
+                                ),
+                                DropdownButtonFormField<String>(
+                                  decoration: InputDecoration(
+                                    //hintText: "Select Session/Class",
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 5,
+                                      vertical: 5,
+                                    ),
+                                  ),
+                                  value: _selectedSection,
+                                  items: _section.map((section) {
+                                    return DropdownMenuItem<String>(
+                                      value: section,
+                                      child: Text(section),
+                                    );
+                                  }).toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      _selectedSection = value;
+                                    });
+                                  },
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                         ],
                       ),
-                      const Row(
+                      Row(
                         children: [
                           Expanded(
                             child: Column(
                               children: [
-                                Align(
-                                    alignment: Alignment.centerLeft,
-                                    child:
-                                        LabelWithAsterisk(labelText: "Date")),
-                                CustomTextFormField(
-                                  hintText: "",
+                                const Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: LabelWithAsterisk(labelText: "Date"),
+                                ),
+                                GestureDetector(
+                                  onTap: () => _pickDate(context),
+                                  child: AbsorbPointer(
+                                    child: CustomTextFormField(
+                                      hintText: "Select Date",
+                                      controller: _dateController,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
-                          Expanded(
+                          const Expanded(
                             child: Column(
                               children: [
                                 Align(
@@ -155,7 +285,7 @@ class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                         ],
@@ -174,9 +304,9 @@ class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                         children: [
                           // Header Row
                           const TableRow(
-                            decoration: BoxDecoration(color: AppColor.primaryColor),
+                            decoration:
+                                BoxDecoration(color: AppColor.primaryColor),
                             children: [
-                              
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Text(
@@ -209,14 +339,13 @@ class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                           for (int i = 0; i < paymentData.length; i++)
                             TableRow(
                               children: [
-                                
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text(paymentData[i]['billDate']),
+                                  child: Text(paymentData[i]['roll']),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Text(paymentData[i]['feeType']),
+                                  child: Text(paymentData[i]['name']),
                                 ),
                                 Checkbox(
                                   value: selectedRows[i],
@@ -230,14 +359,13 @@ class TeacherAttendanceCreateState extends State<TeacherAttendanceCreate> {
                             ),
                         ],
                       ),
-                      const SizedBox(height: 16),
-                      const SizedBox(height: 16),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 48),
+                       
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColor.primaryColor,
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 32, vertical: 16),
+                              horizontal: 10, vertical: 10),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),

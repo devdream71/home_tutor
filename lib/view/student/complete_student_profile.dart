@@ -7,6 +7,7 @@ import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class CompleteStudentProfile extends StatefulWidget {
   const CompleteStudentProfile({super.key});
@@ -16,6 +17,50 @@ class CompleteStudentProfile extends StatefulWidget {
 }
 
 class _CompleteStudentProfileState extends State<CompleteStudentProfile> {
+  final List<String> _religion = ["Islam", "Hundu", "christian", "Buddho"];
+  String? _selectedReligion;
+
+  final List<String> _gender = [
+    "Male",
+    "Female",
+  ];
+  String? _selectedgender;
+
+  final List<String> _bloodgroup = [
+    "A +",
+    "A -",
+    "B +",
+    "B -",
+    "O +",
+    "O -",
+  ];
+  String? _selectedbloodgroup;
+
+  final TextEditingController _dateController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize selectedRows with false for each entry in paymentData
+
+    _dateController.text = DateFormat('MMM d, yyyy').format(DateTime.now());
+  }
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null) {
+      setState(() {
+        _dateController.text = DateFormat('MMM d, yyyy').format(date);
+      });
+    }
+  }
+
   bool showFatherInfo = false;
   bool showMotherInfo = false;
   bool showMoreInfo = false;
@@ -73,11 +118,11 @@ class _CompleteStudentProfileState extends State<CompleteStudentProfile> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 10),
                   Center(
                     child: Image.asset(
                       'assets/bookicon.png',
-                      height: 100,
+                      height: 60,
                     ),
                   ),
                   const Center(
@@ -195,12 +240,30 @@ class _CompleteStudentProfileState extends State<CompleteStudentProfile> {
                     alignment: Alignment.centerLeft,
                     child: LabelWithAsterisk(labelText: "Religion"),
                   ),
-                  CustomTextFormField(
-                    hintText: " ",
-                    showDropdownIcon: true,
-                    controller: religionController,
-                    validator: (value) =>
-                        appValidator.validateCantBeEmpty(value),
+                  DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      //hintText: "Select Session/Class",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      isDense: true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 5,
+                      ),
+                    ),
+                    value: _selectedReligion,
+                    items: _religion.map((religion) {
+                      return DropdownMenuItem<String>(
+                        value: religion,
+                        child: Text(religion),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedReligion = value;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -213,12 +276,30 @@ class _CompleteStudentProfileState extends State<CompleteStudentProfile> {
                     alignment: Alignment.centerLeft,
                     child: LabelWithAsterisk(labelText: "Gender"),
                   ),
-                  CustomTextFormField(
-                    hintText: " ",
-                    showDropdownIcon: true,
-                    controller: genderController,
-                    validator: (value) =>
-                        appValidator.validateCantBeEmpty(value),
+                  DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      //hintText: "Select Session/Class",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      isDense: true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 5,
+                      ),
+                    ),
+                    value: _selectedgender,
+                    items: _gender.map((gender) {
+                      return DropdownMenuItem<String>(
+                        value: gender,
+                        child: Text(gender),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedgender = value;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -233,13 +314,16 @@ class _CompleteStudentProfileState extends State<CompleteStudentProfile> {
                 children: [
                   const Align(
                     alignment: Alignment.centerLeft,
-                    child: LabelWithAsterisk(labelText: "Date of Birth"),
+                    child: LabelWithAsterisk(labelText: "Date"),
                   ),
-                  CustomTextFormField(
-                    hintText: " ",
-                    controller: dateofBathController,
-                    validator: (value) =>
-                        appValidator.validateCantBeEmpty(value),
+                  GestureDetector(
+                    onTap: () => _pickDate(context),
+                    child: AbsorbPointer(
+                      child: CustomTextFormField(
+                        hintText: "Select Date",
+                        controller: _dateController,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -252,12 +336,30 @@ class _CompleteStudentProfileState extends State<CompleteStudentProfile> {
                     alignment: Alignment.centerLeft,
                     child: LabelWithAsterisk(labelText: "Blood Group"),
                   ),
-                  CustomTextFormField(
-                    hintText: " ",
-                    showDropdownIcon: true,
-                    controller: dateofBathController,
-                    validator: (value) =>
-                        appValidator.validateCantBeEmpty(value),
+                  DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      //hintText: "Select Session/Class",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      isDense: true,
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 5,
+                        vertical: 5,
+                      ),
+                    ),
+                    value: _selectedbloodgroup,
+                    items: _bloodgroup.map((blood) {
+                      return DropdownMenuItem<String>(
+                        value: blood,
+                        child: Text(blood),
+                      );
+                    }).toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedbloodgroup = value;
+                      });
+                    },
                   ),
                 ],
               ),
