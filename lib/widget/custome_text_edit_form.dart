@@ -110,8 +110,8 @@ class CustomTextFormField extends StatelessWidget {
           children: [
             Container(
               height: maxLines != null && maxLines! > 1
-                  ? 20.0 * maxLines! // Adjust height dynamically
-                  : 34, // Default single-line height
+                  ? 20.0 * maxLines! 
+                  : 34,
               decoration: BoxDecoration(
                 border: Border.all(
                   color: state.hasError ? Colors.red : Colors.black26,
@@ -122,7 +122,7 @@ class CustomTextFormField extends StatelessWidget {
               child: TextFormField(
                 obscureText: obscureText,
                 maxLines: maxLines,
-                cursorHeight: 15,
+                cursorHeight: 14,
                 controller: controller,
                 decoration: InputDecoration(
                   border: InputBorder.none,

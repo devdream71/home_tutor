@@ -74,7 +74,7 @@ class _StudentHomeworkViewState extends State<StudentHomeworkView> {
                         ],
                       ),
                     ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                    Expanded(

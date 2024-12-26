@@ -44,7 +44,7 @@ class _AllStudentNoAppBarState extends State<AllStudentNoAppBar> {
                 ),
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Expanded(
@@ -91,7 +91,7 @@ class _AllStudentNoAppBarState extends State<AllStudentNoAppBar> {
                         children: [
                           const Align(
                             alignment: Alignment.centerLeft,
-                            child: LabelWithAsterisk(labelText: "Period"),
+                            child: LabelWithAsterisk(labelText: "Gender"),
                           ),
                           DropdownButtonFormField<String>(
                             decoration: InputDecoration(
@@ -99,10 +99,9 @@ class _AllStudentNoAppBarState extends State<AllStudentNoAppBar> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              isDense: true, // Makes the field more compact
+                              isDense: true,
                               contentPadding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                  vertical: 5), // Removes all padding
+                                  horizontal: 10, vertical: 5),
                             ),
                             value: _selectedGender,
                             items: _gender.map((period) {
@@ -139,35 +138,54 @@ class _AllStudentNoAppBarState extends State<AllStudentNoAppBar> {
                     },
                     child: const Card(
                       child: ListTile(
+                        // contentPadding:
+                        //     EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+                        dense: true,
                         leading: CircleAvatar(
                           child: Text('1'),
                         ),
-                        title: Text("Md. Jasim Uddin"),
-                        subtitle: Text('Class: Two'),
-                        trailing: Icon(Icons.arrow_forward_ios),
+                        title: Text(
+                          "Md. Jasim Uddind",
+                        ),
+                        subtitle: Text(
+                          'Class: Two',
+                        ),
+                        trailing: Icon(
+                          Icons.arrow_forward_ios,
+                        ),
                       ),
                     ),
                   ),
-                  const Card(
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        child: Text('2'),
-                      ),
-                      title: Text("Md. Hasan Gaffar"),
-                      subtitle: Text('Class: Five'),
-                      trailing: Icon(Icons.arrow_forward_ios),
-                    ),
-                  ),
-                  const Card(
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        child: Text('3'),
-                      ),
-                      title: Text("Miss. Salma Begum"),
-                      subtitle: Text('Class: Seven'),
-                      trailing: Icon(Icons.arrow_forward_ios),
-                    ),
-                  ),
+                  // const Card(
+                  //   child: ListTile(
+                  //     // contentPadding: EdgeInsets.all(0),
+                  //     // dense: true,
+                  //     // Removes horizontal padding
+
+                  //     leading: CircleAvatar(
+                  //       child: Text('2'),
+                  //     ),
+                  //     title: Text(
+                  //       "Md. Jasim Uddin",
+                  //     ),
+                  //     subtitle: Text(
+                  //       'Class: Two',
+                  //     ),
+                  //     trailing: Icon(
+                  //       Icons.arrow_forward_ios,
+                  //     ),
+                  //   ),
+                  // ),
+                  // const Card(
+                  //   child: ListTile(
+                  //     leading: CircleAvatar(
+                  //       child: Text('3'),
+                  //     ),
+                  //     title: Text("Miss. Salma Begum"),
+                  //     subtitle: Text('Class: Seven'),
+                  //     trailing: Icon(Icons.arrow_forward_ios),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

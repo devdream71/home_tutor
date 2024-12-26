@@ -1,6 +1,4 @@
 import 'package:education_home_tutor/utils/colors.dart';
-import 'package:education_home_tutor/view/teacher/teacher_homework.dart/home_work_view_deatils.dart';
-import 'package:education_home_tutor/view/teacher/teacher_homework.dart/teacher_homework_create.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
@@ -57,33 +55,33 @@ class _AcademicHomeworkNoAppBarViewState
             const SizedBox(
               height: 10,
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: GestureDetector(
-                onTap: () {
-                  //Handle pay button action
-                  Get.to(const TeacherHomeworkCreateView(),
-                      transition: Transition.rightToLeftWithFade);
-                },
-                child: Container(
-                  width: 150,
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 16.0),
-                  decoration: BoxDecoration(
-                    color: AppColor.primaryColor,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const Text(
-                    "Create",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            // Align(
+            //   alignment: Alignment.centerLeft,
+            //   child: GestureDetector(
+            //     onTap: () {
+            //       //Handle pay button action
+            //       Get.to(const TeacherHomeworkCreateView(),
+            //           transition: Transition.rightToLeftWithFade);
+            //     },
+            //     child: Container(
+            //       width: 150,
+            //       padding: const EdgeInsets.symmetric(
+            //           vertical: 8.0, horizontal: 16.0),
+            //       decoration: BoxDecoration(
+            //         color: AppColor.primaryColor,
+            //         borderRadius: BorderRadius.circular(8),
+            //       ),
+            //       child: const Text(
+            //         "Create",
+            //         textAlign: TextAlign.center,
+            //         style: TextStyle(
+            //           color: Colors.white,
+            //           fontWeight: FontWeight.bold,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             const SizedBox(
               height: 20,
             ),
@@ -251,8 +249,21 @@ class _AcademicHomeworkNoAppBarViewState
         DataCell(
           GestureDetector(
             onTap: () {
-              Get.to(const HomeWorkViewDeatils(),
-                  transition: Transition.rightToLeftWithFade);
+              // Get.to(const HomeWorkViewDeatils(),
+              //     transition: Transition.rightToLeftWithFade);
+              Get.dialog(
+    AlertDialog(
+      title: const Text('Not Available'),
+      content: const Text('This feature is not available right now.'),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () {
+            Get.back();  // Close the dialog
+          },
+          child: const Text('OK'),
+        ),
+      ],
+    ),);
             },
             child: const Icon(
               Icons.edit_note,

@@ -106,7 +106,7 @@ class _TeacherAttendanceCreateViewState
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                    Expanded(
@@ -145,7 +145,7 @@ class _TeacherAttendanceCreateViewState
                               ],
                             ),
                           ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                 ],

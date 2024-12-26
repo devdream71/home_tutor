@@ -4,11 +4,9 @@ import 'package:education_home_tutor/view/academic/account/account_no_app_bar.da
 import 'package:education_home_tutor/view/academic/home_work/home_work_no_appbar.dart';
 import 'package:education_home_tutor/view/academic/more/more.dart';
 import 'package:education_home_tutor/view/academic/student_request/all_student_no_app_bar.dart';
-import 'package:education_home_tutor/view/academic/student_request/student_request.dart';
  
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:badges/badges.dart' as badges;
+
 
 class AcademicHomeBottomNav extends StatefulWidget {
   const AcademicHomeBottomNav({super.key});
@@ -23,8 +21,7 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
   int _selectedIndex = 0;
   // Screens for each tab
   static final List<Widget> _pages = <Widget>[
-    AcademicHome(),
-   
+    const AcademicHome(),
     const AcademicHomeworkNoAppBarView(),
     const AcademicAccountNoAppBar(),
     const AllStudentNoAppBar(),
@@ -77,21 +74,22 @@ class AcademicHomeBottomNavState extends State<AcademicHomeBottomNav> {
             //     ),
             //   ),
             // ),
-            InkWell(
-              onTap: () {
-                Get.to(const StudentRequest(),
-                    transition: Transition.rightToLeftWithFade);
-              },
-              child: const badges.Badge(
-                badgeContent: Text('3'),
-                child: Icon(Icons.account_circle),
-              ),
-            ),
 
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.notifications),
-            ),
+            // InkWell(
+            //   onTap: () {
+            //     Get.to(const StudentRequest(),
+            //         transition: Transition.rightToLeftWithFade);
+            //   },
+            //   child: const badges.Badge(
+            //     badgeContent: Text('3'),
+            //     child: Icon(Icons.account_circle),
+            //   ),
+            // ),
+
+            // IconButton(
+            //   onPressed: () {},
+            //   icon: const Icon(Icons.notifications),
+            // ),
             const SizedBox(
               width: 8,
             ),

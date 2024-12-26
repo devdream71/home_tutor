@@ -87,15 +87,32 @@ class AcademicAccount extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text('৳ 500'),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text('৳ 500'),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 500',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               ),
                               const SizedBox(
                                 width: 10,

@@ -83,38 +83,73 @@ class AcademicAccountNoAppBar extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text('৳ 500'),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text('৳ 500'),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 500',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    '৳ 100',
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text(
+                                //     '৳ 100',
+                                //     style: TextStyle(color: Colors.green),
+                                //   ),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 100',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               )
                             ],
                           )
                         ],
                       ),
+                      const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -126,33 +161,67 @@ class AcademicAccountNoAppBar extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text('৳ 2000'),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text('৳ 2000'),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 2000',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    '৳ 900',
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text(
+                                //     '৳ 900',
+                                //     style: TextStyle(color: Colors.green),
+                                //   ),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 900',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               )
                             ],
                           )
@@ -192,23 +261,41 @@ class AcademicAccountNoAppBar extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    '৳ 6,000',
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text(
+                                //     '৳ 6,000',
+                                //     style: TextStyle(color: Colors.green),
+                                //   ),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 6000',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               )
                             ],
                           )
                         ],
                       ),
+                      const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -220,23 +307,42 @@ class AcademicAccountNoAppBar extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    '৳ 9,000',
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text(
+                                //     '৳ 9,000',
+                                //     style: TextStyle(color: Colors.green),
+                                //   ),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 9000',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               )
                             ],
                           )
                         ],
                       ),
+
+                      const SizedBox(height: 10,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -248,18 +354,35 @@ class AcademicAccountNoAppBar extends StatelessWidget {
                             children: [
                               SizedBox(
                                 width: 100,
-                                child: OutlinedButton(
-                                  onPressed: () {},
-                                  style: OutlinedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                  ),
-                                  child: const Text(
-                                    '৳ 1,200',
-                                    style: TextStyle(color: Colors.green),
-                                  ),
-                                ),
+                                child: 
+                                // OutlinedButton(
+                                //   onPressed: () {},
+                                //   style: OutlinedButton.styleFrom(
+                                //     shape: RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(12),
+                                //     ),
+                                //   ),
+                                //   child: const Text(
+                                //     '৳ 1,200',
+                                //     style: TextStyle(color: Colors.green),
+                                //   ),
+                                // ),
+                                Container(
+  padding: const EdgeInsets.symmetric(vertical: 5),
+  decoration: BoxDecoration(
+    border: Border.all(color: Colors.blue), // Border color (can be adjusted)
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: const Center(
+    child: Text(
+      '৳ 1200',
+      style: TextStyle(
+        fontSize: 16,  // Adjust font size if needed
+        color: Colors.blue,  // Adjust text color if needed
+      ),
+    ),
+  ),
+)
                               )
                             ],
                           )

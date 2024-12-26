@@ -4,9 +4,46 @@ import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
-class FeeReport extends StatelessWidget {
+class FeeReport extends StatefulWidget {
   const FeeReport({super.key});
+
+  @override
+  State<FeeReport> createState() => _FeeReportState();
+}
+
+class _FeeReportState extends State<FeeReport> {
+  final TextEditingController _dateController = TextEditingController();
+
+  final TextEditingController _endDateController = TextEditingController();
+
+  final List<String> _feeType = ["Tution Fee", "Exam Fee", "General Fee"];
+  String? _selectedFeeType;
+
+  Future<void> _pickDate(BuildContext context) async {
+    final DateTime? date = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2100),
+    );
+
+    if (date != null) {
+      setState(() {
+        _dateController.text = DateFormat('MMM d, yyyy').format(date);
+         _endDateController.text = DateFormat('MMM d, yyyy').format(date);
+      });
+    }
+  }
+
+ 
+  @override
+  void initState() {
+    super.initState();
+    // Set current date by default
+    _dateController.text = DateFormat('MMM d, yyyy').format(DateTime.now());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,54 +88,105 @@ class FeeReport extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Start Date")),
-                      CustomTextFormField(
-                        hintText: "",
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Date"),
+                      ),
+                      GestureDetector(
+                        onTap: () => _pickDate(context),
+                        child: AbsorbPointer(
+                          child: CustomTextFormField(
+                            hintText: "Select Date",
+                            controller: _dateController,
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
                         child: LabelWithAsterisk(labelText: "End Date"),
                       ),
-                      CustomTextFormField(
-                        hintText: "",
+                      GestureDetector(
+                        onTap: () => _pickDate(context),
+                        child: AbsorbPointer(
+                          child: CustomTextFormField(
+                            hintText: "Select Date",
+                            controller:
+                                _endDateController, 
+                          ),
+                        ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
                 Expanded(
                   child: Column(
                     children: [
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: LabelWithAsterisk(labelText: "Fee Type")),
-                      CustomTextFormField(
-                        hintText: "",
-                        showDropdownIcon: true,
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: LabelWithAsterisk(labelText: "Fee Type"),
+                      ),
+                      DropdownButtonFormField<String>(
+                        decoration: InputDecoration(
+                          //hintText: "Select Session/Class",
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          isDense: true,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 5,
+                            vertical: 5,
+                          ),
+                        ),
+                        value: _selectedFeeType,
+                        items: _feeType.map((feeType) {
+                          return DropdownMenuItem<String>(
+                            value: feeType,
+                            child: Text(feeType),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedFeeType = value;
+                          });
+                        },
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                const Expanded(child: SizedBox()),
+                const SizedBox(
+                  width: 10,
                 ),
               ],
             ),

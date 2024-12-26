@@ -202,7 +202,7 @@ class _TeacherHomeworkCreateViewState extends State<TeacherHomeworkCreateView> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(

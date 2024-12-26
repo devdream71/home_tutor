@@ -43,7 +43,7 @@ class _AcademicSignUpState extends State<AcademicSignUp> {
     bool passwordVisibilityOff = true; // Initially hidden
     bool passwordConfirmVisibilityOff = true; // Initially hidden
 
-    bool isTermsAccepted = false;
+    // bool isTermsAccepted = false;
 
     return SafeArea(
       child: Scaffold(

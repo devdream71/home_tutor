@@ -1,7 +1,6 @@
 import 'package:education_home_tutor/utils/colors.dart';
+import 'package:education_home_tutor/utils/images.dart';
 import 'package:education_home_tutor/view/academic/academic_home/academic_homebottom_nav.dart';
-import 'package:education_home_tutor/view/academic/academic_auth/academic_sign_up.dart';
-import 'package:education_home_tutor/view/sign_up/sign_up.dart';
 import 'package:education_home_tutor/widget/custom_button.dart';
 import 'package:education_home_tutor/widget/custome_text_edit_form.dart';
 import 'package:education_home_tutor/widget/lebel_with_asterisk.dart';
@@ -33,7 +32,7 @@ class AcademicLogin extends StatelessWidget {
                     const SizedBox(height: 10),
                     Center(
                       child: Image.asset(
-                        'assets/education_logo.png',
+                        AppImages.splashLogo,
                         height: 100,
                       ),
                     ),
@@ -73,12 +72,12 @@ class AcademicLogin extends StatelessWidget {
                             TextSpan(
                               text: title.toUpperCase(),
                               style: const TextStyle(
-                                color: AppColor.primaryColor,
+                                color: Colors.black,
                                 fontWeight: FontWeight.bold,
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  Get.to(() => const SignUp());
+                                  //Get.to(() => const SignUp());
                                 },
                             ),
                           ],
@@ -109,7 +108,7 @@ class AcademicLogin extends StatelessWidget {
                               height: 10,
                             ),
                             const LabelWithAsterisk(
-                              labelText: "Email or Mobile Number",
+                              labelText: "Email",
                             ),
                             CustomTextFormField(
                               controller: emailorPhone,
@@ -136,16 +135,50 @@ class AcademicLogin extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
+                    // CustomButton(
+                    //   onPressed: () {
+                    //     if (formKey.currentState!.validate()) {
+                    //       Get.offAll(const AcademicHomeBottomNav(),
+                    //           transition: Transition.rightToLeftWithFade);
+                    //     }
+                    //   },
+                    //   text: "Login",
+                    //   color: AppColor.primaryColor,
+                    // ),
+
                     CustomButton(
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          Get.offAll(const AcademicHomeBottomNav(),
-                              transition: Transition.rightToLeftWithFade);
-                        }
-                      },
-                      text: "Login",
-                      color: AppColor.primaryColor,
-                    ),
+  onPressed: () {
+    if (formKey.currentState!.validate()) {
+      // Define correct credentials
+      const String correctEmail = 'dttest@gmail.com';
+      const String correctPassword = '123456';
+
+      // Access the form fields
+      String enteredEmail = emailorPhone.text.trim();
+      String enteredPassword = password.text.trim();
+
+      // Validate credentials
+      if (enteredEmail == correctEmail && enteredPassword == correctPassword) {
+        // Navigate to the next page if credentials match
+        Get.offAll(
+          const AcademicHomeBottomNav(),
+          transition: Transition.rightToLeftWithFade,
+        );
+      } else {
+        // Show error message if credentials don't match
+        Get.snackbar(
+          "Login Failed",
+          "Email or password does not match.",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red.withOpacity(0.7),
+          colorText: Colors.white,
+        );
+      }
+    }
+  },
+  text: "Login",
+  color: AppColor.primaryColor,
+),
 
                     const SizedBox(
                       height: 15,
@@ -155,34 +188,64 @@ class AcademicLogin extends StatelessWidget {
                     //   labelText: "Forget Password? reset here",
                     // ),
 
-                    RichText(
-                      text: TextSpan(
-                        text: "Forget Password? ",
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "reset here".toUpperCase(),
-                            style: const TextStyle(
-                              color: AppColor.primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                //Get.to(() => MerchantSignupPage());
-                              },
-                          ),
-                        ],
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                    // RichText(
+                    //   text: TextSpan(
+                    //     text: "Forget Password? ",
+                    //     style: const TextStyle(
+                    //       fontSize: 16,
+                    //       color: Colors.black,
+                    //     ),
+                    //     children: [
+                    //       TextSpan(
+                    //         text: "reset here".toUpperCase(),
+                    //         style: const TextStyle(
+                    //           color: AppColor.primaryColor,
+                    //           fontWeight: FontWeight.bold,
+                    //         ),
+                    //         recognizer: TapGestureRecognizer()
+                    //           ..onTap = () {
+                    //             //Get.to(() => MerchantSignupPage());
+                    //           },
+                    //       ),
+                    //     ],
+                    //   ),
+                    //   textAlign: TextAlign.center,
+                    // ),
 
                     const SizedBox(
                       height: 30,
                     ),
 
+                    // Center(
+                    //   child: RichText(
+                    //     text: TextSpan(
+                    //       text: "Don't have a $title account? ",
+                    //       style: const TextStyle(
+                    //         fontSize: 16,
+                    //         color: Colors.black,
+                    //       ),
+                    //       children: [
+                    //         TextSpan(
+                    //           text: "sign-up".toUpperCase(),
+                    //           style: const TextStyle(
+                    //             color: AppColor.primaryColor,
+                    //             fontWeight: FontWeight.bold,
+                    //           ),
+                    //           recognizer: TapGestureRecognizer()
+                    //             ..onTap = () {
+                    //               Get.to(
+                    //                 // () => const SignUp(),
+                    //                 () => const AcademicSignUp(),
+                    //                 arguments: title,
+                    //                 transition: Transition.rightToLeftWithFade,
+                    //               );
+                    //             },
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     textAlign: TextAlign.center,
+                    //   ),
+                    // ),
                     Center(
                       child: RichText(
                         text: TextSpan(
@@ -200,11 +263,15 @@ class AcademicLogin extends StatelessWidget {
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  Get.to(
-                                    // () => const SignUp(),
-                                    () => const AcademicSignUp(),
-                                    arguments: title,
-                                    transition: Transition.rightToLeftWithFade,
+                                  // Show an alert dialog
+                                  Get.defaultDialog(
+                                    title: "Sign-Up",
+                                    middleText: "Sign-up not available now.",
+                                    textConfirm: "OK",
+                                    onConfirm: () {
+                                      Get.back(); // Close the dialog
+                                    },
+                                    barrierDismissible: true,
                                   );
                                 },
                             ),

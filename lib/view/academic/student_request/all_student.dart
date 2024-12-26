@@ -65,6 +65,7 @@ class AllStudent extends StatelessWidget {
                   },
                   child: const Card(
                     child: ListTile(
+                      
                       leading: CircleAvatar(
                         child: Text('1'),
                       ),
@@ -74,26 +75,26 @@ class AllStudent extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text('2'),
-                    ),
-                    title: Text("Md. Hasan Gaffar"),
-                    subtitle: Text('Class: Five'),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                ),
-                const Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      child: Text('3'),
-                    ),
-                    title: Text("Miss. Salma Begum"),
-                    subtitle: Text('Class: Seven'),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                ),
+                // const Card(
+                //   child: ListTile(
+                //     leading: CircleAvatar(
+                //       child: Text('2'),
+                //     ),
+                //     title: Text("Md. Hasan Gaffar"),
+                //     subtitle: Text('Class: Five'),
+                //     trailing: Icon(Icons.arrow_forward_ios),
+                //   ),
+                // ),
+                // const Card(
+                //   child: ListTile(
+                //     leading: CircleAvatar(
+                //       child: Text('3'),
+                //     ),
+                //     title: Text("Miss. Salma Begum"),
+                //     subtitle: Text('Class: Seven'),
+                //     trailing: Icon(Icons.arrow_forward_ios),
+                //   ),
+                // ),
               ],
             ),
           ),

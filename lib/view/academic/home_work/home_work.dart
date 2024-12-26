@@ -291,8 +291,21 @@ class _AcademicHomeworkViewState extends State<AcademicHomeworkView> {
         DataCell(
           GestureDetector(
             onTap: () {
-              Get.to(const HomeWorkViewDeatils(),
-                  transition: Transition.rightToLeftWithFade);
+              // Get.to(const HomeWorkViewDeatils(),
+              //     transition: Transition.rightToLeftWithFade);
+              Get.dialog(
+    AlertDialog(
+      title: const Text('Not Available'),
+      content: const Text('This feature is not available right now.'),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () {
+            Get.back();  // Close the dialog
+          },
+          child: const Text('OK'),
+        ),
+      ],
+    ));
             },
             child: const Icon(
               Icons.edit_note,

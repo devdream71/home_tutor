@@ -1,21 +1,22 @@
 // import 'package:device_preview/device_preview.dart';
 import 'package:education_home_tutor/utils/colors.dart';
- 
+
 import 'package:education_home_tutor/view/splash/splash.dart';
- 
+
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
-  //   DevicePreview(
-  //     enabled: !kReleaseMode,
-  //     builder: (context) => const MyApp(), // Wrap your app
-  //   ),
-  // );
+      //   DevicePreview(
+      //     enabled: !kReleaseMode,
+      //     builder: (context) => const MyApp(), // Wrap your app
+      //   ),
+      // );
 
-  const MyApp());
+      const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,10 +30,11 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       // locale: DevicePreview.locale(context),
       // builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColor.primaryColor),
         //useMaterial3: true,
-         textTheme: TextTheme(bodySmall: GoogleFonts.roboto()),
+        textTheme: TextTheme(bodySmall: GoogleFonts.roboto()),
       ),
       home: const Splash(),
       // home: AcademicHome(),

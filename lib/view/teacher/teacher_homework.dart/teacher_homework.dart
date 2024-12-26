@@ -108,7 +108,7 @@ class _TeacherHomeworkViewState extends State<TeacherHomeworkView> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                    Expanded(
@@ -147,7 +147,7 @@ class _TeacherHomeworkViewState extends State<TeacherHomeworkView> {
                               ],
                             ),
                           ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                    Expanded(

@@ -1,18 +1,16 @@
 import 'package:education_home_tutor/utils/colors.dart';
-import 'package:education_home_tutor/view/academic/academic_class/academic_class.dart';
-import 'package:education_home_tutor/view/academic/attendance/attendance.dart';
-import 'package:education_home_tutor/view/academic/home_work/home_work.dart';
-import 'package:education_home_tutor/view/academic/mark_entry/mark_entry.dart';
-import 'package:education_home_tutor/view/academic/notice/notice.dart';
-import 'package:education_home_tutor/view/academic/result/result.dart';
-import 'package:education_home_tutor/view/academic/routine/routine.dart';
-import 'package:education_home_tutor/view/academic/student_request/all_student.dart';
-import 'package:education_home_tutor/view/academic/teacher/all_teacher.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class AcademicHome extends StatelessWidget {
-  AcademicHome({super.key});
+
+class AcademicHome extends StatefulWidget {
+  const AcademicHome({super.key});
+
+  @override
+  State<AcademicHome> createState() => _AcademicHomeState();
+}
+
+class _AcademicHomeState extends State<AcademicHome> {
+  bool isDisabled = false;
 
   // List of menu items
   final List<Map<String, dynamic>> menuItems = [
@@ -45,84 +43,141 @@ class AcademicHome extends StatelessWidget {
                   children: [
                     //teacher===>
                     SizedBox(
-                      width: 130,
-                      child: ElevatedButton.icon(
-                        icon: const Icon(Icons.school, color: Colors.white),
-                        onPressed: () {},
-                        label: const Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Teacher",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              '25',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColor.primaryColor,
+                        width: 130,
+                        child:
+                            // ElevatedButton.icon(
+                            //   icon: const Icon(Icons.school, color: Colors.white),
+                            //   onPressed: (){},
+                            //   label: const Column(
+                            //     mainAxisAlignment: MainAxisAlignment.start,
+                            //     crossAxisAlignment: CrossAxisAlignment.start,
+                            //     children: [
+                            //       Text(
+                            //         "Teacher",
+                            //         style: TextStyle(
+                            //           fontSize: 14,
+                            //           fontWeight: FontWeight.bold,
+                            //           color: Colors.white,
+                            //         ),
+                            //       ),
+                            //       Text(
+                            //         '25',
+                            //         style: TextStyle(
+                            //           fontSize: 14,
+                            //           color: Colors.white,
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            //   style: ElevatedButton.styleFrom(
+                            //     backgroundColor: AppColor.primaryColor,
+                            //     padding: const EdgeInsets.all(8),
+                            //     shape: RoundedRectangleBorder(
+                            //       borderRadius: BorderRadius.circular(15),
+                            //     ),
+                            //   ),
+                            // ),
+                            Container(
                           padding: const EdgeInsets.all(8),
-                          shape: RoundedRectangleBorder(
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryColor,
                             borderRadius: BorderRadius.circular(15),
                           ),
-                        ),
-                      ),
-                    ),
+                          child: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Teacher",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                '25',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
                     const SizedBox(
                       width: 10,
                     ),
 
                     //student ====>
                     SizedBox(
-                      width: 130,
-                      child: ElevatedButton.icon(
-                        icon:
-                            const Icon(Icons.diversity_3, color: Colors.white),
-                        onPressed: () {},
-                        label: const Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Student",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              '400',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              AppColor.primaryColor, // Button fill color
-                          padding: const EdgeInsets.all(
-                              8), // Padding inside the button
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(15), // Circular border
+                        width: 130,
+                        child:
+                            // ElevatedButton.icon(
+                            //   icon:
+                            //       const Icon(Icons.diversity_3, color: Colors.white),
+                            //   onPressed: () {},
+                            //   label: const Column(
+                            //     mainAxisAlignment: MainAxisAlignment.start,
+                            //     crossAxisAlignment: CrossAxisAlignment.start,
+                            //     children: [
+                            //       Text(
+                            //         "Student",
+                            //         style: TextStyle(
+                            //           fontSize: 14,
+                            //           fontWeight: FontWeight.bold,
+                            //           color: Colors.white,
+                            //         ),
+                            //       ),
+                            //       Text(
+                            //         '400',
+                            //         style: TextStyle(
+                            //           fontSize: 14,
+                            //           color: Colors.white,
+                            //         ),
+                            //       ),
+                            //     ],
+                            //   ),
+                            //   style: ElevatedButton.styleFrom(
+                            //     backgroundColor:
+                            //         AppColor.primaryColor, // Button fill color
+                            //     padding: const EdgeInsets.all(
+                            //         8), // Padding inside the button
+                            //     shape: RoundedRectangleBorder(
+                            //       borderRadius:
+                            //           BorderRadius.circular(15), // Circular border
+                            //     ),
+                            //   ),
+                            // ),
+
+                            Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: AppColor.primaryColor,
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                        ),
-                      ),
-                    ),
+                          child: const Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Student",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                '400',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          ),
+                        )),
                   ],
                 ),
 
@@ -203,42 +258,86 @@ class AcademicHome extends StatelessWidget {
                                 children: [
                                   SizedBox(
                                     width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 5),
-                                        minimumSize: const Size(0, 0),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
+                                    child:
+                                        // OutlinedButton(
+                                        //   onPressed: () {},
+                                        //   style: OutlinedButton.styleFrom(
+                                        //     padding: const EdgeInsets.symmetric(
+                                        //         vertical: 5),
+                                        //     minimumSize: const Size(0, 0),
+                                        //     shape: RoundedRectangleBorder(
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(12),
+                                        //     ),
+                                        //   ),
+                                        //   child: const Text('৳ 500'),
+                                        // ),
+                                        Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors
+                                                .blue), // Border color (can be adjusted)
+                                        borderRadius: BorderRadius.circular(12),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          '৳ 500',
+                                          style: TextStyle(
+                                            fontSize:
+                                                16, // Adjust font size if needed
+                                            color: Colors
+                                                .blue, // Adjust text color if needed
+                                          ),
                                         ),
                                       ),
-                                      child: const Text('৳ 500'),
                                     ),
                                   ),
                                   const SizedBox(
                                     width: 10,
                                   ),
                                   SizedBox(
-                                    width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
+                                      width: 100,
+                                      child:
+                                          // OutlinedButton(
+                                          //   onPressed: () {},
+                                          //   style: OutlinedButton.styleFrom(
+                                          //     padding: const EdgeInsets.symmetric(
+                                          //         vertical: 5),
+                                          //     minimumSize: const Size(0, 0),
+                                          //     shape: RoundedRectangleBorder(
+                                          //       borderRadius:
+                                          //           BorderRadius.circular(12),
+                                          //     ),
+                                          //   ),
+                                          //   child: const Text(
+                                          //     '৳ 100',
+                                          //     style: TextStyle(color: Colors.green),
+                                          //   ),
+                                          // ),
+                                          Container(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 5),
-                                        minimumSize: const Size(0, 0),
-                                        shape: RoundedRectangleBorder(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors
+                                                  .blue), // Border color (can be adjusted)
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
-                                      ),
-                                      child: const Text(
-                                        '৳ 100',
-                                        style: TextStyle(color: Colors.green),
-                                      ),
-                                    ),
-                                  )
+                                        child: const Center(
+                                          child: Text(
+                                            '৳ 100',
+                                            style: TextStyle(
+                                              fontSize:
+                                                  16, // Adjust font size if needed
+                                              color: Colors
+                                                  .blue, // Adjust text color if needed
+                                            ),
+                                          ),
+                                        ),
+                                      ))
                                 ],
                               )
                             ],
@@ -279,53 +378,101 @@ class AcademicHome extends StatelessWidget {
                               Row(
                                 children: [
                                   SizedBox(
-                                    width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
+                                      width: 100,
+                                      child:
+                                          // OutlinedButton(
+                                          //   onPressed: () {},
+                                          //   style: OutlinedButton.styleFrom(
+                                          //     padding: const EdgeInsets.symmetric(
+                                          //         vertical: 5),
+                                          //     minimumSize: const Size(0, 0),
+                                          //     shape: RoundedRectangleBorder(
+                                          //       borderRadius:
+                                          //           BorderRadius.circular(12),
+                                          //     ),
+                                          //   ),
+                                          //   child: const Text(
+                                          //     '৳ 6,000',
+                                          //     style: TextStyle(color: Colors.green),
+                                          //   ),
+                                          // ),
+                                          Container(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 5),
-                                        minimumSize: const Size(0, 0),
-                                        shape: RoundedRectangleBorder(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors
+                                                  .blue), // Border color (can be adjusted)
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
-                                      ),
-                                      child: const Text(
-                                        '৳ 6,000',
-                                        style: TextStyle(color: Colors.green),
-                                      ),
-                                    ),
-                                  )
+                                        child: const Center(
+                                          child: Text(
+                                            '৳ 6000',
+                                            style: TextStyle(
+                                              fontSize:
+                                                  16, // Adjust font size if needed
+                                              color: Colors
+                                                  .blue, // Adjust text color if needed
+                                            ),
+                                          ),
+                                        ),
+                                      ))
                                 ],
                               )
                             ],
                           ),
+                           const SizedBox(height: 10,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               const Text('Bank'),
                               const SizedBox(
-                                width: 10,
+                                height: 10,
                               ),
                               Row(
                                 children: [
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
                                   SizedBox(
                                     width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 5),
-                                        minimumSize: const Size(0, 0),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12),
-                                        ),
+                                    child:
+                                        // OutlinedButton(
+                                        //   onPressed: () {},
+                                        //   style: OutlinedButton.styleFrom(
+                                        //     padding: const EdgeInsets.symmetric(
+                                        //         vertical: 5),
+                                        //     minimumSize: const Size(0, 0),
+                                        //     shape: RoundedRectangleBorder(
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(12),
+                                        //     ),
+                                        //   ),
+                                        //   child: const Text(
+                                        //     '৳ 9,000',
+                                        //     style: TextStyle(color: Colors.green),
+                                        //   ),
+                                        // ),
+                                        Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 5),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Colors
+                                                .blue), // Border color (can be adjusted)
+                                        borderRadius: BorderRadius.circular(12),
                                       ),
-                                      child: const Text(
-                                        '৳ 9,000',
-                                        style: TextStyle(color: Colors.green),
+                                      child: const Center(
+                                        child: Text(
+                                          '৳ 1200',
+                                          style: TextStyle(
+                                            fontSize:
+                                                16, // Adjust font size if needed
+                                            color: Colors
+                                                .blue, // Adjust text color if needed
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   )
@@ -333,6 +480,8 @@ class AcademicHome extends StatelessWidget {
                               )
                             ],
                           ),
+
+                          const SizedBox(height: 10,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -343,24 +492,47 @@ class AcademicHome extends StatelessWidget {
                               Row(
                                 children: [
                                   SizedBox(
-                                    width: 100,
-                                    child: OutlinedButton(
-                                      onPressed: () {},
-                                      style: OutlinedButton.styleFrom(
+                                      width: 100,
+                                      child:
+                                          // OutlinedButton(
+                                          //   onPressed: () {},
+                                          //   style: OutlinedButton.styleFrom(
+                                          //     padding: const EdgeInsets.symmetric(
+                                          //         vertical: 5),
+                                          //     minimumSize: const Size(0, 0),
+                                          //     shape: RoundedRectangleBorder(
+                                          //       borderRadius:
+                                          //           BorderRadius.circular(12),
+                                          //     ),
+                                          //   ),
+                                          //   child: const Text(
+                                          //     '৳ 1,200',
+                                          //     style: TextStyle(color: Colors.green),
+                                          //   ),
+                                          // ),
+
+                                          Container(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 5),
-                                        minimumSize: const Size(0, 0),
-                                        shape: RoundedRectangleBorder(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: Colors
+                                                  .blue), // Border color (can be adjusted)
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
-                                      ),
-                                      child: const Text(
-                                        '৳ 1,200',
-                                        style: TextStyle(color: Colors.green),
-                                      ),
-                                    ),
-                                  )
+                                        child: const Center(
+                                          child: Text(
+                                            '৳ 1200',
+                                            style: TextStyle(
+                                              fontSize:
+                                                  16, // Adjust font size if needed
+                                              color: Colors
+                                                  .blue, // Adjust text color if needed
+                                            ),
+                                          ),
+                                        ),
+                                      ))
                                 ],
                               )
                             ],
@@ -371,110 +543,108 @@ class AcademicHome extends StatelessWidget {
                   ),
                 ),
 
-                 
-
                 const SizedBox(
                   height: 15,
                 ),
 
-                Card(
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 8.0, left: 8, right: 8, bottom: 0),
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 4,
-                        crossAxisSpacing: 6,
-                        mainAxisSpacing: 6,
-                        childAspectRatio: 1,
-                      ),
-                      itemCount: menuItems.length,
-                      itemBuilder: (context, index) {
-                        final menu = menuItems[index];
-                        return GestureDetector(
-                          onTap: () {
-                            switch (menu['label']) {
-                              case 'Teacher info':
-                                Get.to(const AllTeacher(),
-                                    transition: Transition.rightToLeftWithFade);
-                                break;
+                // Card(
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(
+                //         top: 8.0, left: 8, right: 8, bottom: 0),
+                //     child: GridView.builder(
+                //       shrinkWrap: true,
+                //       physics: const NeverScrollableScrollPhysics(),
+                //       gridDelegate:
+                //           const SliverGridDelegateWithFixedCrossAxisCount(
+                //         crossAxisCount: 4,
+                //         crossAxisSpacing: 6,
+                //         mainAxisSpacing: 6,
+                //         childAspectRatio: 1,
+                //       ),
+                //       itemCount: menuItems.length,
+                //       itemBuilder: (context, index) {
+                //         final menu = menuItems[index];
+                //         return GestureDetector(
+                //           onTap: () {
+                //             switch (menu['label']) {
+                //               case 'Teacher info':
+                //                 Get.to(const AllTeacher(),
+                //                     transition: Transition.rightToLeftWithFade);
+                //                 break;
 
-                              case 'Student Info':
-                                Get.to(const AllStudent(),
-                                    transition: Transition.rightToLeftWithFade);
-                                break;
+                //               case 'Student Info':
+                //                 Get.to(const AllStudent(),
+                //                     transition: Transition.rightToLeftWithFade);
+                //                 break;
 
-                              case 'Class':
-                                Get.to(const AcademicClass(),
-                                    transition: Transition.rightToLeftWithFade);
-                                break;
+                //               case 'Class':
+                //                 Get.to(const AcademicClass(),
+                //                     transition: Transition.rightToLeftWithFade);
+                //                 break;
 
-                              case 'Home work':
-                                Get.to(const AcademicHomeworkView(),
-                                    transition: Transition.rightToLeftWithFade);
-                                break;
+                //               case 'Home work':
+                //                 Get.to(const AcademicHomeworkView(),
+                //                     transition: Transition.rightToLeftWithFade);
+                //                 break;
 
-                              case 'Attendance':
-                                Get.to(const AcademicAttendanceCreateView(),
-                                    transition: Transition.rightToLeftWithFade);
-                                break;
+                //               case 'Attendance':
+                //                 Get.to(const AcademicAttendanceCreateView(),
+                //                     transition: Transition.rightToLeftWithFade);
+                //                 break;
 
-                              case 'Routine':
-                                Get.to(const Routine(),
-                                    transition: Transition.rightToLeftWithFade);
-                                break;
+                //               case 'Routine':
+                //                 Get.to(const Routine(),
+                //                     transition: Transition.rightToLeftWithFade);
+                //                 break;
 
-                              case 'Mark Entry':
-                                Get.to(const AcademicMarkEntryView(),
-                                    transition: Transition.rightToLeftWithFade);
+                //               case 'Mark Entry':
+                //                 Get.to(const AcademicMarkEntryView(),
+                //                     transition: Transition.rightToLeftWithFade);
 
-                                break;
+                //                 break;
 
-                              case 'Result':
-                                Get.to(const ResultPage(),
-                                    transition: Transition.rightToLeftWithFade);
+                //               case 'Result':
+                //                 Get.to(const ResultPage(),
+                //                     transition: Transition.rightToLeftWithFade);
 
-                                break;
-                              case 'Notice':
-                                Get.to(const AcademicNoticePage(),
-                                    transition: Transition.rightToLeftWithFade);
+                //                 break;
+                //               case 'Notice':
+                //                 Get.to(const AcademicNoticePage(),
+                //                     transition: Transition.rightToLeftWithFade);
 
-                                break;
+                //                 break;
 
-                              default:
-                                print('Unknown item clicked');
-                                break;
-                            }
-                          },
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              CircleAvatar(
-                                radius: 24, // Adjust icon size
-                                backgroundColor: Colors.blue.withOpacity(0.1),
-                                child: Icon(
-                                  menuItems[index]['icon'],
-                                  color: Colors.blue,
-                                  size: 28,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                menuItems[index]['label'],
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w500),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                )
+                //               default:
+                //                 print('Unknown item clicked');
+                //                 break;
+                //             }
+                //           },
+                //           child: Column(
+                //             mainAxisSize: MainAxisSize.min,
+                //             children: [
+                //               CircleAvatar(
+                //                 radius: 24, // Adjust icon size
+                //                 backgroundColor: Colors.blue.withOpacity(0.1),
+                //                 child: Icon(
+                //                   menuItems[index]['icon'],
+                //                   color: Colors.blue,
+                //                   size: 28,
+                //                 ),
+                //               ),
+                //               const SizedBox(height: 8),
+                //               Text(
+                //                 menuItems[index]['label'],
+                //                 textAlign: TextAlign.center,
+                //                 style: const TextStyle(
+                //                     fontSize: 12, fontWeight: FontWeight.w500),
+                //               ),
+                //             ],
+                //           ),
+                //         );
+                //       },
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),

@@ -1,5 +1,7 @@
 import 'package:education_home_tutor/utils/colors.dart';
+import 'package:education_home_tutor/view/student/student_bottom_page/fee/create_patment.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PaymentTableScreen extends StatefulWidget {
   const PaymentTableScreen({super.key});
@@ -60,7 +62,8 @@ class PaymentTableScreenState extends State<PaymentTableScreen> {
                         children: [
                           // Header Row
                           const TableRow(
-                            decoration: BoxDecoration(color: AppColor.primaryColor),
+                            decoration:
+                                BoxDecoration(color: AppColor.primaryColor),
                             children: [
                               Center(
                                 child: Padding(
@@ -139,7 +142,9 @@ class PaymentTableScreenState extends State<PaymentTableScreen> {
                           Container(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 8),
-                            color: Colors.red,
+                            decoration: BoxDecoration(
+                                color: Colors.cyan,
+                                borderRadius: BorderRadius.circular(8)),
                             child: Text(
                               calculateTotal(),
                               style: const TextStyle(
@@ -171,14 +176,23 @@ class PaymentTableScreenState extends State<PaymentTableScreen> {
                       ElevatedButton.icon(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 32, vertical: 16),
+                          // padding: const EdgeInsets.symmetric(
+                          //     horizontal: 32, vertical: 16),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                         onPressed: () {
                           // Handle Pay Button Press
+                          final String totalAmount = calculateTotal();
+                          //Get.to(PaymentPage()  , transition: Transition.rightToLeftWithFade);
+                          Get.to(
+                            PaymentPage(),
+                            arguments: {
+                              'total': totalAmount
+                            }, // Pass total as argument
+                            transition: Transition.rightToLeftWithFade,
+                          );
                         },
                         icon: const Icon(
                           Icons.payment,
